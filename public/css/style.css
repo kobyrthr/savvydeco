@@ -1,0 +1,90 @@
+:root{
+    --black: #0F172A;
+    --greyDarkest: #475569;
+    --greyDark: #94A3b8;
+    --grey: #cbd5e1;
+    --greyLight: #E2E8F0;
+    --greyLightest: #F1F5F9;
+    --white: #FFFFFF;
+    --brownLight:#FFF8EC;
+}
+body{
+    background-color: var(--brownLight);
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    height: 72px;
+    background-color: white;
+    width: 100%;
+}
+
+nav ul{
+    margin: 0;
+    float: right;
+    justify-self: flex-end;
+    w
+}
+
+
+li{
+    list-style-type: none;
+    display: inline;
+    margin-bottom: 0;
+}
+
+button{
+    background-color: var(--black);
+    color: var(--brownLight);
+    width:200px;
+    height:72px;
+    border: none;
+}
+
+.hero .row{
+    display: flex;
+    align-items: center;
+}
+
+.hero img{
+    width: 100%;
+}
+.shopAll{
+    margin-top: 48px;
+}
+.shopAll h3{
+    text-align: center;
+}
+
+.titleSection{
+display: flex;
+align-items: center;
+}
+
+.titleSection img,p{
+    margin: 0 12px 16px 0;
+}
+
+.categories{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.categories button{
+    background-color: transparent;
+    border: solid var(--black) 1px;
+    color: var(--black);
+    height: 48px;
+    margin: 24px;
+}
+
+.products{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-img{
+width:100%
+}
