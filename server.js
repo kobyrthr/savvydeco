@@ -1,7 +1,10 @@
 /* ====== External Modules  ====== */
 // Required External Modules
 // all required code that is not our own
+require("dotenv").config();
 const express = require('express');
+const passport = require('passport');
+
 
 
 
