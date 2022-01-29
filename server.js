@@ -9,8 +9,6 @@ require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 
-
-
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
@@ -40,7 +38,7 @@ const userRoutes = require('./routes/users');
 /* ====== Middleware  ====== */ 
 // //(app.use)
 // <<<<<<< homepage
-// app.use("/public", express.static('public'))
+app.use(express.static('public'))
 // =======
 // >>>>>>> main
 app.use(
