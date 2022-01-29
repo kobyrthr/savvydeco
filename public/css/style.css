@@ -13,12 +13,25 @@ body{
 }
 
 nav{
-    display: inline;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    background-color: white;
+    width: 100%;
 }
+
+nav ul{
+    margin: 0;
+    float: right;
+    justify-self: flex-end;
+    w
+}
+
 
 li{
     list-style-type: none;
     display: inline;
+    margin-bottom: 0;
 }
 
 button{
@@ -44,9 +57,18 @@ button{
     text-align: center;
 }
 
+.titleSection{
+display: flex;
+align-items: center;
+}
+
+.titleSection img,p{
+    margin: 0 12px 16px 0;
+}
+
 .categories{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 24px;
 }
 
