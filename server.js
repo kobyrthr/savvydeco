@@ -3,8 +3,6 @@
 // all required code that is not our own
 const express = require('express');
 
-//enabling ejs 
-app.set('view engine', 'ejs');
 
 
 /* ====== Internal Modules  ====== */
@@ -17,6 +15,8 @@ app.set('view engine', 'ejs');
 const app = express();
 // returns an object that is our server
 
+//enabling ejs 
+app.set('view engine', 'ejs');
 	
 /* ====== Middleware  ====== */ 
 //(app.use)
@@ -30,6 +30,10 @@ const PORT = 4000; // full caps signify a config variable
 
 
 /* ====== Routes  ====== */
+app.get('/',(req,res) => {
+    res.render('index')
+})
+
 
 	
 /* ====== Server bind  ====== */
