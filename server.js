@@ -1,7 +1,13 @@
 /* ====== External Modules  ====== */
 // Required External Modules
 // all required code that is not our own
+
 const express = require('express');
+const session = require("express-session");
+const passport = require('passport');
+require("dotenv").config();
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+
 
 
 
@@ -17,9 +23,38 @@ const app = express();
 
 //enabling ejs 
 app.set('view engine', 'ejs');
+
+
+//connect mongoDB with mongoose
+require("./config/database");
+
+//require passport
+require("./config/passport");
+
+
+/* ====== Routes  ====== */
+const indexRoutes = require('./routes/index');
+const userRoutes = require('./routes/users');
+
 	
 /* ====== Middleware  ====== */ 
 //(app.use)
+app.use(
+    session({
+      secret: "letsgoproject2!",
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+
+
+//Add passport middleware here
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/', indexRoutes);
+app.use('/', userRoutes);
+
 
 
 /* ====== System Variables  ====== */
@@ -27,13 +62,6 @@ const PORT = 4000; // full caps signify a config variable
 
 /* ====== App Configuration  ====== */
 // app.set
-
-
-/* ====== Routes  ====== */
-app.get('/',(req,res) => {
-    res.render('index')
-})
-
 
 	
 /* ====== Server bind  ====== */
