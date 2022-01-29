@@ -1,0 +1,25 @@
+:root{
+    --black: #0F172A;
+    --greyDarkest: #475569;
+    --greyDark: #94A3b8;
+    --grey: #cbd5e1;
+    --greyLight: #E2E8F0;
+    --greyLightest: #F1F5F9;
+    --white: #FFFFFF;
+    --brownLight:#FFF8EC;
+}
+body{
+    background-color: var(--brownLight);
+}
+
+button{
+    background-color: var(--black);
+    color: var(--brownLight);
+    width:200px;
+    height:72px;
+    border: none;
+}
+
+.card-img{
+width:100%
+}

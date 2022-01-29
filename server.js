@@ -20,6 +20,8 @@ app.set('view engine', 'ejs');
 	
 /* ====== Middleware  ====== */ 
 //(app.use)
+app.use("/public", express.static('public'))
+
 
 
 /* ====== System Variables  ====== */
