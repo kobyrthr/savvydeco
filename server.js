@@ -21,6 +21,21 @@ app.set('view engine', 'ejs');
 /* ====== Middleware  ====== */ 
 //(app.use)
 app.use("/public", express.static('public'))
+app.use(
+    session({
+      secret: "letsgoproject2!",
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+
+
+//Add passport middleware here
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/', indexRoutes);
+app.use('/', userRoutes);
 
 
 
