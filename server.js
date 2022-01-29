@@ -38,7 +38,11 @@ const userRoutes = require('./routes/users');
 
 	
 /* ====== Middleware  ====== */ 
-//(app.use)
+// //(app.use)
+// <<<<<<< homepage
+// app.use("/public", express.static('public'))
+// =======
+// >>>>>>> main
 app.use(
     session({
       secret: "letsgoproject2!",
