@@ -16,8 +16,8 @@ nav{
     display: flex;
     align-items: center;
     height: 72px;
-    background-color: white;
     width: 100%;
+    justify-content: center;
 }
 
 nav ul{
@@ -44,10 +44,12 @@ button{
 .hero .row{
     display: flex;
     align-items: center;
+    height: 70vh;
 }
 
 .hero img{
     width: 100%;
+    
 }
 .shopAll{
     margin-top: 48px;
