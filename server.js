@@ -12,7 +12,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
-
+ 
 
 /* ====== Instanced Module  ====== */
 // Create the Express app
@@ -33,6 +33,7 @@ require("./config/passport");
 /* ====== Routes  ====== */
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/users');
+const productRoutes = require('./routes/products');
 
 	
 /* ====== Middleware  ====== */ 
@@ -54,8 +55,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/products', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
+
 
 
 

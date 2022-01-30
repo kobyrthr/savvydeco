@@ -1,4 +1,4 @@
-const Products = require('models/products')
+const Products = require('../models/products')
 
 function newProduct (req,res){
 
@@ -17,16 +17,17 @@ function newProduct (req,res){
 
 
 function allProducts(req,res){
+    res.send('THIS IS THE PRODUCTS PAGE')
 
-    Products.find({}, function(err,products){
-        if (error){
-            console.log("There was an error:",error)
-        }
-        else {
-            const inventory = {products:products}
-            res.render('productPage',inventory)
-        }
-    })
+    // Products.find({}, function(err,products){
+    //     if (error){
+    //         console.log("There was an error:",error)
+    //     }
+    //     else {
+    //         const inventory = {products:products}
+    //         res.render('productPage',inventory)
+    //     }
+    // })
 }
 
 module.exports = {
