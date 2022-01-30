@@ -28,3 +28,8 @@ function allProducts(req,res){
         }
     })
 }
+
+module.exports = {
+    newProduct,
+    allProducts
+}
