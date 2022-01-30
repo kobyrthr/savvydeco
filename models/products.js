@@ -10,11 +10,11 @@ const productSchema = new mongoose.Schema({
     longdes: {type:String},
     seller: {type:String}, // google auth grabbing process.env.GOOGLE_CLIENT_ID
     // sellerLocation: {type:String},
-    // categories: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    // ref: 'Categories'
-}],
-    googleId: {type: String},
+//     categories: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Categories'
+// }],
+    // googleId: {type: String},
 },
 {
     timestamps:true
