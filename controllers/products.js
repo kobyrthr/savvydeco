@@ -8,6 +8,13 @@ function newProduct (req,res){
         longdes:'I got these about 2 years ago when my office closed down. They have sat in the basement for a while unused',
         seller:'Koby'
 
+    },
+    {
+        title:'Credenza',
+        shortdes:'Half off',
+        longdes:'Moving. Must go this weekend',
+        seller:'Koby'
+
     }),
     function (err){
         if (err){console.log("There was an error",err)}

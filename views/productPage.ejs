@@ -20,7 +20,11 @@
 
         <h1>This is the product page</h1>
 
-        
+        <%products.forEach(product => {%>
+
+            <p><%= product.title %> </p>
+
+        <% }) %> 
         
     </body>
 </html>
