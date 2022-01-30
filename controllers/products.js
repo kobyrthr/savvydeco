@@ -16,21 +16,20 @@ function newProduct (req,res){
 }
 
 
-function allProducts(req,res){
-    res.send('THIS IS THE PRODUCTS PAGE')
+function index(req,res){
 
-    // Products.find({}, function(err,products){
-    //     if (error){
-    //         console.log("There was an error:",error)
-    //     }
-    //     else {
-    //         const inventory = {products:products}
-    //         res.render('productPage',inventory)
-    //     }
-    // })
+    Products.find({}, function(err,products){
+        if (err){
+            console.log("There was an error:")
+        }
+        else {
+            const inventory = {products:products}
+            res.render('productPage',inventory)
+        }
+    })
 }
 
 module.exports = {
     newProduct,
-    allProducts
+    index
 }
