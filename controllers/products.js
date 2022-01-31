@@ -1,19 +1,20 @@
 const Products = require('../models/products')
+const User = require('../models/user');
 
 
 
     // Products.create({
-    //     title:'Bar Stools',
-    //     shortdes:'Lighlty used. Moving sale.',
-    //     longdes:'I got these about 2 years ago when my office closed down. They have sat in the basement for a while unused',
-    //     seller:'Koby'
+    //     title:'Neon sign',
+    //     shortdes:'neon vibes',
+    //     longdes:'super rare. no low ball offers!',
+    //     seller:'Mike'
 
     // },
     // {
-    //     title:'Credenza',
+    //     title:'Bookshelf',
     //     shortdes:'Half off',
     //     longdes:'Moving. Must go this weekend',
-    //     seller:'Koby'
+    //     seller:'Renee'
 
     // }),
     // function (err){
@@ -35,6 +36,9 @@ const Products = require('../models/products')
             res.render('productPage',inventory)
         }
     })
+    // User.find({}, function(err, users){
+    //     res.render('users/index'), {users, user: req.user}
+    // });
 }
 
 module.exports = {

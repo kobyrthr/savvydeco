@@ -7,24 +7,67 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Savvy</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/skeleton.css">
+        <link rel="stylesheet" href="/css/style.css">
+
+
+        <script src="" async defer></script>
     </head>
     <body>
-        <script src="" async defer></script>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        
 
-        <h1>This is the product page</h1>
+
+
+
+        <div class="container hero">
+            <div class="row">
+                <div class="six columns">
+                    <h1>High-end decor at accessible prices</h1>
+                    <p>The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
+                    </p>
+                    <button>Shop Now</button>
+                </div>
+                <div class="six columns">
+                    <img src="/images/Hero image.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="container shopAll">
+            <h3>All Listings</h3>
+            <div class="row categories">
+                <button>Category Filter</button>
+                <button>Category Filter</button>
+                <button>Category Filter</button>
+            </div>
+            <div class="row products">
+
+                <!-- <h1>This is the product page</h1> -->
 
         <%products.forEach(product => {%>
 
-            <p><%= product.title %> </p>
+            <div class="columns four product-card">
+                <div class="titleSection">
+                    <img src="/images/favicon.png" alt="">
+                    <p><%= product.seller %></p>
+                </div>
+                <img src="/images/Product image.png" alt="" class ="card-img">
+                <h5><%= product.title %></h3>
+                <p><%= product.longdes %></p>
+                <a href="#">See Details</a>
 
-        <% }) %> 
-        
+            </div>
+
+            <% }) %>
+
+             
+            </div>
+        </div>
+
+
     </body>
 </html>
