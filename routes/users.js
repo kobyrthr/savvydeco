@@ -3,7 +3,7 @@ const usersCtrl = require('../controllers/users');
 
 // GET /users
 router.get('/users', usersCtrl.index);
-
+router.post('/users/:googleId', usersCtrl.userProfile);
 
 
 // Insert this middleware for routes that require a logged in user

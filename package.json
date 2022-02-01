@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/imanirak/savvydeco#readme",
   "dependencies": {
+    "async": "^3.2.3",
     "dotenv": "^14.3.2",
     "ejs": "^3.1.6",
     "express": "^4.17.2",

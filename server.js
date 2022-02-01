@@ -5,8 +5,12 @@
 const express = require('express');
 const session = require("express-session");
 const passport = require('passport');
+const mongoose = require('mongoose');
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+
+const db = require('./database');
+
 
 
 /* ====== Internal Modules  ====== */
@@ -24,7 +28,7 @@ app.set('view engine', 'ejs');
 
 
 //connect mongoDB with mongoose
-require("./config/database");
+require("./database");
 
 //require passport
 require("./config/passport");
