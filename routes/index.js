@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
-const  productsCtrl = require('../controllers/products');
+const  productsCtrl = require('../controllers/index');
 
 router.get('/', function(req,res){
     res.render('index', {user: req.user});
