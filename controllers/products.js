@@ -1,6 +1,8 @@
 const Products = require('../models/products')
 const User = require('../models/user');
 
+
+
     // Products.create({
     //     title:'Neon sign',
     //     shortdes:'neon vibes',
@@ -21,6 +23,8 @@ const User = require('../models/user');
     // }
 
     
+    
+    
     function index(req,res){
         
     Products.find({}, function(err,products){
@@ -38,9 +42,6 @@ const User = require('../models/user');
 }
 
 
-function newProduct(req,res){
-    res.render('new')
-}
 
 module.exports = {
     
