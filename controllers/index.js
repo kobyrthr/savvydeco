@@ -1,8 +1,6 @@
 const Products = require('../models/products')
 const User = require('../models/user');
 
-
-
     // Products.create({
     //     title:'Neon sign',
     //     shortdes:'neon vibes',
@@ -22,8 +20,6 @@ const User = require('../models/user');
     //     else { console.log('no errors')}
     // }
 
-    
-    
     
     function index(req,res){
         
