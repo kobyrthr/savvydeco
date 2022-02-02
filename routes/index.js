@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
 const  productsCtrl = require('../controllers/index');
+const bodyParser = require('body-parser')
+
 
 
 router.get('/', function(req,res){

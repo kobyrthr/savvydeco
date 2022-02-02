@@ -7,6 +7,7 @@ const session = require("express-session");
 const passport = require('passport');
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const bodyParser = require('body-parser')
 
 
 /* ====== Internal Modules  ====== */
@@ -40,6 +41,8 @@ const productRoutes = require('./routes/products');
 // //(app.use)
 // <<<<<<< homepage
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }));
+
 // =======
 // >>>>>>> main
 app.use(

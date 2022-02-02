@@ -1,5 +1,7 @@
 const Products = require('../models/products')
 const User = require('../models/user');
+const bodyParser = require('body-parser')
+
 
     // Products.create({
     //     title:'Neon sign',
@@ -42,7 +44,7 @@ function newProduct(req,res){
     res.render('new')
 }
 
-function create(res,res){
+function create(req,res){
     let newProd = new Products({
         title:req.body.title,
         shortdes:req.body.shortdes,
