@@ -2,11 +2,14 @@ const router = require('express').Router();
 const passport = require('passport');
 const  productsCtrl = require('../controllers/index');
 
+
 router.get('/', function(req,res){
     res.render('index', {user: req.user});
 })
 
 router.get('/',productsCtrl.index)
+
+router.post('/',productsCtrl.create)
 
 //Google Oauth login route
 router.get('/auth/google', passport.authenticate('google', {scope:['profile', 'email']})

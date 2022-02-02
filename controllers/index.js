@@ -42,8 +42,20 @@ function newProduct(req,res){
     res.render('new')
 }
 
+function create(res,res){
+    let newProd = new Products({
+        title:req.body.title,
+        shortdes:req.body.shortdes,
+        longdes:req.body.longdes,
+    })
+    
+    newProd.save()
+    res.redirect('/')
+}
+
 module.exports = {
     
     index,
-    newProduct
+    newProduct,
+    create
 }
