@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
-const db = require('./database');
 
 
 
@@ -28,7 +27,7 @@ app.set('view engine', 'ejs');
 
 
 //connect mongoDB with mongoose
-require("./database");
+require("./config/database");
 
 //require passport
 require("./config/passport");

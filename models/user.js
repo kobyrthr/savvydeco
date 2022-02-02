@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-const Product = require('../models/products')
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
    // id:{type: String},
    googleId: String ,
     name: String,
     email: String,
     Location: String, //could use google auth var
-    products: [{
-        type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product'
-}]
+//     products: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Product'
+// }]
     
 },
 {
@@ -18,4 +18,6 @@ const userSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model("User", userSchema);
+const user = mongoose.model("user", userSchema);
+
+module.exports = user;

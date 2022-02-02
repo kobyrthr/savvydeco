@@ -1,21 +1,33 @@
-const { request, response } = require('express');
-const User = require('../models/user');
+const Express = require('express');
+const userDb = require('../models/user');
 
-module.exports = {
-    index,
-}
 
 function index(req,res){
-    User.find({}, function(err, users){
+    userDb.find({}, function(err, users){
         res.render('users/index'), {users, user: req.user}
     });
+
 }
 
-function userProfile(req,res){
-    try {
-        let userPro = await collection.findOne({"googleId": request.params.googleId});
-        response.send(userPro);
-    }  catch (e) {
-        response.status(500).send({message: e.message});
-    }};
+// //oneuser with id after signin
+// const oneUser = (req,res) => {
+//     const context = db.user.findById(req.params.id)
+//     res.render('index', {
+//         user:context
+//     })
+// }
 
+const oneUser = (req, res) => {
+	userDb.findById(req.params.id, (err, foundUser) => {
+		if (err) res.send(err);
+
+		const context = { user: foundUser };
+		res.render("index", context);
+	});
+};
+
+
+module.exports = {
+   index,
+   oneUser
+}
