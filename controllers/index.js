@@ -55,9 +55,19 @@ function create(req,res){
     res.redirect('/')
 }
 
+function prodId(req,res){
+    Products.findById(req.params.id, function (err,foundProduct){
+        if (err) {console.log(err)}
+        else {
+            res.render ('productId')
+        }
+    })
+}
+
 module.exports = {
     
     index,
     newProduct,
-    create
+    create,
+    prodId
 }

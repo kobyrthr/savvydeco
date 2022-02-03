@@ -10,8 +10,9 @@ router.get('/', function(req,res){
 })
 
 router.get('/',productsCtrl.index)
-
 router.post('/',productsCtrl.create)
+router.get("/:id", productsCtrl.prodId);
+
 
 //Google Oauth login route
 router.get('/auth/google', passport.authenticate('google', {scope:['profile', 'email']})
