@@ -18,22 +18,10 @@
         <script src="" async defer></script>
     </head>
     <body>
+        
 
 
 
-        <div class="container hero">
-            <div class="row">
-                <div class="six columns">
-                    <h1>High-end decor at accessible prices</h1>
-                    <p>The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
-                    </p>
-                    <button>Shop Now</button>
-                </div>
-                <div class="six columns">
-                    <img src="/images/Hero image.png" alt="">
-                </div>
-            </div>
-        </div>
 
         <div class="container shopAll">
             <h3>All Listings</h3>
@@ -43,6 +31,25 @@
                 <button>Category Filter</button>
             </div>
             <div class="row products">
+
+                <!-- <h1>This is the product page</h1> -->
+
+        <%products.forEach(product => {%>
+
+            <div class="columns four product-card">
+                <div class="titleSection">
+                    <img src="/images/favicon.png" alt="">
+                    <p><%= product.seller %></p>
+                </div>
+                <img src="/images/Product image.png" alt="" class ="card-img">
+                <h5><%= product.title %></h3>
+                <p><%= product.longdes %></p>
+                <a href="#">See Details</a>
+
+            </div>
+
+            <% }) %>
+
              
             </div>
         </div>

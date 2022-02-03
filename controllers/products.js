@@ -1,11 +1,6 @@
-
-module.exports = {
-    users:require('./users')
- }
-
-
-const Products = require('../models/products');
+const Products = require('../models/products')
 const User = require('../models/user');
+
 
 
     // Products.create({
@@ -28,6 +23,8 @@ const User = require('../models/user');
     // }
 
     
+    
+    
     function index(req,res){
         
     Products.find({}, function(err,products){
@@ -45,25 +42,9 @@ const User = require('../models/user');
 }
 
 
-function newProduct(req,res){
-    res.render('new')
-}
-
-function create(req,res){
-    let newProd = new Products({
-        title:req.body.title,
-        shortdes:req.body.shortdes,
-        longdes:req.body.longdes,
-    })
-    
-    newProd.save()
-    res.redirect('/')
-}
 
 module.exports = {
     
     index,
-    newProduct,
-    create
-
+    newProduct
 }

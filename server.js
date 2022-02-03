@@ -8,6 +8,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const bodyParser = require('body-parser')
 
 
 
@@ -15,7 +16,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
-
+ 
 
 /* ====== Instanced Module  ====== */
 // Create the Express app
@@ -36,12 +37,15 @@ require("./config/passport");
 /* ====== Routes  ====== */
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/users');
+const productRoutes = require('./routes/products');
 
 	
 /* ====== Middleware  ====== */ 
 // //(app.use)
 // <<<<<<< homepage
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }));
+
 // =======
 // >>>>>>> main
 app.use(
@@ -57,13 +61,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
 
 
 
+
 /* ====== System Variables  ====== */
-const PORT = 4000; // full caps signify a config variable
+const PORT = process.env.PORT || 4000; // full caps signify a config variable
 
 /* ====== App Configuration  ====== */
 // app.set
