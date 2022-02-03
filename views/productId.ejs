@@ -19,24 +19,25 @@
     </head>
     <body>
         
-        <div class="columns four product-card">
-            <div class="titleSection">
-                <img src="/images/favicon.png" alt="">
-                <p><%= product.seller %></p>
-            </div>
-            <img src="/images/Product image.png" alt="" class ="card-img">
-            <h5><%= product.title %></h3>
-            <p><%= product.longdes %></p>
-            <a href="<%= product._id%>">See Details</a>
-
-        </div>
-
-
-
+        
+        
+        
         <div class="container shopAll">
             <h3>Product ID page</h3>
             <div class="row products">
-
+                
+                <img src="/images/Product image.png" alt="" class ="card-img columns eight">
+                <div class="columns four product-card">
+                    <div class="titleSection">
+                        <img src="/images/favicon.png" alt="">
+                        <p><%= product.seller %></p>
+                    </div>
+                    <h5><%= product.title %></h3>
+                    <p><%= product.shortdes %></p>
+                    <p><%= product.longdes %></p>
+                    <button>Contact</button>
+        
+                </div>
       
 
              
