@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Product = require('../models/products')
 
 const userSchema = new mongoose.Schema({
-   // id:{type: String},
-   googleId: String ,
+    // id:{type: String},
+    googleId: String ,
     name: String,
     email: String,
     Location: String, //could use google auth var
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
     ref: 'Product'
 }]
-    
+
 },
 {
     timestamps:true
