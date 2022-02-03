@@ -59,7 +59,8 @@ function prodId(req,res){
     Products.findById(req.params.id, function (err,foundProduct){
         if (err) {console.log(err)}
         else {
-            res.render ('productId')
+            const inventory = {product:foundProduct}
+            res.render ('productId',inventory)
         }
     })
 }
