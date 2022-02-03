@@ -12,8 +12,8 @@ router.get('/auth/google', passport.authenticate('google', {scope:['profile', 'e
 
 //Google Oauth callback route
 router.get('/oauth2callback', passport.authenticate("google",{
-    successRedirect:"/userProfile",
-    failureRedirect:'/',
+    successRedirect:"/",
+    failureRedirect:'/error',
 })
 );
 
@@ -24,4 +24,5 @@ router.get("/logout", (req,res)=> {
     res.redirect("/");
 })
 
-module.exports = router;
+module.exports = router,
+{allUsers: require("./users")};

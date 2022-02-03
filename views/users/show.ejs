@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Profile | <%= user.name %></title>
+	</head>
+	<body>
+		<nav>
+			<h1>Welcome to User App!</h1>
+			<ul>
+				<li>
+					<a href="/users">Users</a>
+				</li>
+				<li>
+					<a href="/users/show">Add an User</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<section>
+				<h2>user Info</h2>
+				<a href="/users/<%= user._id %>/edit">userprofile</a>
+				<ul>
+					<li>Name: <%= user.name %></li>
+				</ul>
+			</section>
+			<form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+				<input type="submit" value="Delete" />
+			</form>
+		</main>
+	</body>
+</html>
