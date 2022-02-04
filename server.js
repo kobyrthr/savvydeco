@@ -6,6 +6,7 @@ const express = require('express');
 const session = require("express-session");
 const passport = require('passport');
 const mongoose = require('mongoose');
+const methodOverride = require("method-override");
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
@@ -42,6 +43,8 @@ const userRoutes = require('./routes/users');
 // //(app.use)
 // <<<<<<< homepage
 app.use(express.static('public'))
+// method override Middleware
+app.use(methodOverride("_method"));
 // =======
 // >>>>>>> main
 app.use(
