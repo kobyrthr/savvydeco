@@ -1,7 +1,6 @@
 const Products = require('../models/products')
+const passport = require('passport');
 const User = require('../models/user');
-const bodyParser = require('body-parser')
-
 
     // Products.create({
     //     title:'Neon sign',
@@ -30,13 +29,18 @@ const bodyParser = require('body-parser')
             console.log("There was an error:")
         }
         else {
-            const inventory = {products:products}
-            res.render('index',inventory)
+
+            res.render('index',{
+                products,
+                user: req.user
+                })
         }
     })
     // User.find({}, function(err, users){
     //     res.render('users/index'), {users, user: req.user}
     // });
+
+    
 }
 
 
@@ -55,9 +59,20 @@ function create(req,res){
     res.redirect('/')
 }
 
+// function prodId(req,res){
+//     Products.findById(req.params.id, function (err,foundProduct){
+//         if (err) {console.log(err)}
+//         else {
+//             const inventory = {product:foundProduct}
+//             res.render ('productId',inventory)
+//         }
+//     })
+// }
+
 module.exports = {
     
     index,
     newProduct,
-    create
+    create,
+    // prodId
 }
