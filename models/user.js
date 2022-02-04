@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-   // id:{type: String},
-   googleId: String ,
+ //   id: String,
+  googleId: String ,
     name: String,
     email: String,
     Location: String, //could use google auth var

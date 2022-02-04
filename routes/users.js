@@ -4,7 +4,12 @@ const usersCtrl = require('../controllers/users');
 // GET /users
 router.get('/', usersCtrl.index);
 router.get('/users', usersCtrl.index)
-router.put('/:id', usersCtrl.updateUser);
+
+router.post('/user/:id', usersCtrl.updateUser);
+router.put('/:id', usersCtrl.showUser);
+router.get('/user/:id', usersCtrl.updateUser)
+
+
 
 
 // Insert this middleware for routes that require a logged in user

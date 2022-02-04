@@ -39,6 +39,7 @@ const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/users');
 
 	
+
 /* ====== Middleware  ====== */ 
 // //(app.use)
 // <<<<<<< homepage
@@ -64,7 +65,16 @@ app.use('/', indexRoutes);
 app.use('/', userRoutes);
 
 
+//user profile
+app.get('/users/:id', function (req,res){
+  res.render("users/show");
+ 
+})
 
+//favicon error 
+app.get('/favicon.ico', function(req,res){
+  res.send("404");
+})
 /* ====== System Variables  ====== */
 const PORT = 4000; // full caps signify a config variable
 

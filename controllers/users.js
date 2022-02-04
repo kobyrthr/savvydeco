@@ -45,9 +45,26 @@ const updateUser = (req, res) => {
 	);
 };
 
+//show
+const showUser = (req, res) => {
+    userDb.findById(req.params.id)
+    // turns ids into the data from their model
+        .populate("user")
+        // functioning like userDb.findById()
+        // allowing us to reference documents in other collections by automatically replacing the specified path/"field" in the document(s) from other collections
+        .exec((err, foundUser) => {
+            if (err) res.send(err);
+
+            const context = { user: foundUser };
+
+            res.render("users/show", context)
+        });
+};
+
 
 module.exports = {
    index,
    oneUser,
    updateUser,
+   showUser
 }
