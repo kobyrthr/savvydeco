@@ -57,7 +57,7 @@ const showUser = (req, res) => {
 
             const context = { user: foundUser };
 
-            res.render("users/show", context)
+            res.render("users/show");
         });
 };
 

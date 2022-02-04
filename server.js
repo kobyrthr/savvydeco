@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 
 //connect mongoDB with mongoose
 require("./config/database");
-
+const userDb = require('./models/user');
 //require passport
 require("./config/passport");
 
@@ -67,7 +67,9 @@ app.use('/', userRoutes);
 
 //user profile
 app.get('/users/:id', function (req,res){
-  res.render("users/show");
+  const user = userDb.findById(req.params.id)
+  res.render("users/show", {user: user});
+  console.log(user)
  
 })
 
