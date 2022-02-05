@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
     // listedDate: {type: String},
     shortdes: {type:String}, 
     longdes: {type:String},
-    seller: {type:String}, // google auth grabbing process.env.GOOGLE_CLIENT_ID
+    // seller: {type:String}, // google auth grabbing process.env.GOOGLE_CLIENT_ID
     // sellerLocation: {type:String},
 //     categories: [{
 //         type: mongoose.Schema.Types.ObjectId,
