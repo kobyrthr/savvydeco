@@ -7,10 +7,10 @@ const userSchema = new Schema({
     name: String,
     email: String,
     Location: String, //could use google auth var
-    products: [{
-        type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product'
-}]
+//     products: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Product'
+// }],
     // timestamps:true
 });
 
