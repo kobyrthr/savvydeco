@@ -69,9 +69,9 @@ function create(req,res){
     User.findById(newProd.seller).exec(function (err, foundUser) {
         if (err) res.send(err);
         console.log('this is the found user',foundUser)
-        console.log('this is newProd',newProd._id)
-        // foundUser.products.push(newProd); 
-        // foundUser.save(); 
+        console.log('this is newProdId',newProd._id)
+        foundUser.products.push(newProd._id); 
+        foundUser.save(); 
     });
     res.redirect('/')
 }
