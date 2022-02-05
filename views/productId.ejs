@@ -18,9 +18,7 @@
         <script src="" async defer></script>
     </head>
     <body>
-        <nav><a href="/">Home</a></nav>
-        
-        
+        <nav><a href="/">Home</a></nav> 
         
         <div class="container shopAll">
             <h3>Product ID page</h3>
@@ -29,9 +27,14 @@
                 <img src="/images/Product image.png" alt="" class ="card-img columns eight">
                 <div class="columns four product-card">
                     <div class="titleSection">
+
                         <p><%= product.seller %></p>
+
+                        <img src="/images/favicon.png" alt="">
+
                     </div>
                     <h5><%= product.title %></h3>
+                    
                     <p><%= product.shortdes %></p>
                     <p><%= product.longdes %></p>
                     <button>Contact</button>

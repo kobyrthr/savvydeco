@@ -13,6 +13,7 @@ router.get('/users/:id', usersCtrl.updateUser);
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect("/auth/google");
+    next()
 }
 
 module.exports = router;

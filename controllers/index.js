@@ -77,6 +77,7 @@ function prodId(req,res){
         console.log(req.params)
         if (err) {console.log(err)}
         else {
+
             const product = {product:foundProduct}
             console.log(foundProduct)
             res.render ('products/show',product)
@@ -91,4 +92,5 @@ module.exports = {
     newProduct,
     create,
     prodId,
+
 }
