@@ -70,20 +70,20 @@ function create(req,res){
     res.redirect('/')
 }
 
-function prodId(req,res){
-    Products.findById(req.params.id, function (err,foundProduct){
-        if (err) {console.log(err)}
-        else {
-            const inventory = {product:foundProduct}
-            res.render ('productId',inventory)
-        }
-    })
-}
+// function prodId(req,res){
+//     Products.findById(req.params.id, function (err,foundProduct){
+//         if (err) {console.log(err)}
+//         else {
+//             const inventory = {product:foundProduct}
+//             res.render ('productId',inventory)
+//         }
+//     })
+// }
 
 module.exports = {
     
     index,
     newProduct,
     create,
-    prodId
+    // prodId
 }
