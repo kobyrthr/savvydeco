@@ -1,10 +1,29 @@
 const router = require('express').Router();
 const passport = require('passport');
+const  productsCtrl = require('../controllers/index');
+const bodyParser = require('body-parser')
 
-router.get('/', function(req,res){
-    res.render('index', {user: req.user});
-})
 
+
+const userCtrl = require('../controllers/users')
+
+
+
+// router.get('/',
+// productsCtrl.index,
+
+// )
+
+// router.get('/', function(req,res){
+//     res.render('index', {user: req.user});
+// })
+
+router.post('/',productsCtrl.create)
+// router.get("/:id", productsCtrl.prodId);
+
+router.get('/',productsCtrl.index)
+
+// router.post('/',productsCtrl.create)
 
 //Google Oauth login route
 router.get('/auth/google', passport.authenticate('google', {scope:['profile', 'email']})
@@ -12,8 +31,8 @@ router.get('/auth/google', passport.authenticate('google', {scope:['profile', 'e
 
 //Google Oauth callback route
 router.get('/oauth2callback', passport.authenticate("google",{
-    successRedirect:"/userProfile",
-    failureRedirect:'/',
+    successRedirect:"/",
+    failureRedirect:'/error',
 })
 );
 
@@ -24,4 +43,5 @@ router.get("/logout", (req,res)=> {
     res.redirect("/");
 })
 
-module.exports = router;
+module.exports = router,
+{allUsers: require("./users")};

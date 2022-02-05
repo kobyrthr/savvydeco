@@ -5,14 +5,16 @@
 const express = require('express');
 const session = require("express-session");
 const passport = require('passport');
+const mongoose = require('mongoose');
+const methodOverride = require("method-override");
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-
+const bodyParser = require('body-parser')
 
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
-
+ 
 
 /* ====== Instanced Module  ====== */
 // Create the Express app
@@ -25,7 +27,7 @@ app.set('view engine', 'ejs');
 
 //connect mongoDB with mongoose
 require("./config/database");
-
+const userDb = require('./models/user');
 //require passport
 require("./config/passport");
 
@@ -33,14 +35,20 @@ require("./config/passport");
 /* ====== Routes  ====== */
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/users');
+const productRoutes = require('./routes/products');
 
 	
+
 /* ====== Middleware  ====== */ 
 // //(app.use)
-// <<<<<<< homepage
+
 app.use(express.static('public'))
-// =======
-// >>>>>>> main
+
+app.use(express.urlencoded({ extended: false }));
+
+
+// method override Middleware
+
 app.use(
     session({
       secret: "letsgoproject2!",
@@ -54,10 +62,20 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+app.use('/', productRoutes);
+// app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
 
 
+//user profile
+app.get('/users/:id', function (req,res){
+  const user = userDb.findById(req.params.id)
+  res.render("users/show", {user: user});
+  console.log(user)
+ 
+})
 
 /* ====== System Variables  ====== */
 const PORT = process.env.PORT || 4000; // full caps signify a config variable
