@@ -49,9 +49,23 @@ const oneUser = (req, res) => {
 // 	);
 // };
 
-const updateUser = (req,res) => {
-	const user = userDb.findById(req.params.id)
-	res.render("users/show", {user: user});
+// //working useridpage
+// const updateUser = (req,res) => {
+// 	const user = userDb.findById(req.params.id)
+// 	res.render("users/show", {user: user});
+// }
+
+
+function updateUser(req,res){
+    userDb.findById(req.params.id, function (err,foundUser){
+        console.log(req.params)
+        if (err) {console.log(err)}
+        else {
+            const user = {user:foundUser}
+            console.log(foundUser)
+            res.render ('users/show',user)
+        }
+    })
 }
 
 

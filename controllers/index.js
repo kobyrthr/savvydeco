@@ -77,9 +77,9 @@ function prodId(req,res){
         console.log(req.params)
         if (err) {console.log(err)}
         else {
-            const inventory = {product:foundProduct}
+            const product = {product:foundProduct}
             console.log(foundProduct)
-            res.render ('products/show',inventory)
+            res.render ('products/show',product)
         }
     })
 }
