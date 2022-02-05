@@ -5,9 +5,21 @@ const bodyParser = require('body-parser')
 
 
 
-router.get('/', function(req,res){
-    res.render('index', {user: req.user});
-})
+const userCtrl = require('../controllers/users')
+
+
+
+router.get('/',
+productsCtrl.index,
+
+)
+
+// router.get('/', function(req,res){
+//     res.render('index', {user: req.user});
+// })
+
+router.post('/',productsCtrl.create)
+// router.get("/:id", productsCtrl.prodId);
 
 router.get('/',productsCtrl.index)
 

@@ -18,8 +18,13 @@
         <script src="" async defer></script>
     </head>
     <body>
-
-
+        <%- include('partials/nav.ejs') %>
+        <div class="container">
+          
+        </div>
+        <div class="container">
+            
+        </div>
 
         <div class="container hero">
             <div class="row">
@@ -44,6 +49,23 @@
             </div>
             <div class="row products">
              
+
+                <%products.forEach(product => {%>
+
+                    <div class="columns four product-card">
+                        <div class="titleSection">
+                            <img src="/images/favicon.png" alt="">
+                            <p><%= product.seller %></p>
+                        </div>
+                        <img src="/images/Product image.png" alt="" class ="card-img">
+                        <h5><%= product.title %></h3>
+                        <p><%= product.longdes %></p>
+                        <a href="<%= product._id%>">See Details</a>
+        
+                    </div>
+        
+                    <% }) %>
+
             </div>
         </div>
 

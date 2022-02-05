@@ -10,9 +10,6 @@ require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const bodyParser = require('body-parser')
 
-
-
-
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
@@ -42,12 +39,11 @@ const productRoutes = require('./routes/products');
 	
 /* ====== Middleware  ====== */ 
 // //(app.use)
-// <<<<<<< homepage
+
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }));
 
-// =======
-// >>>>>>> main
+
 app.use(
     session({
       secret: "letsgoproject2!",
@@ -61,7 +57,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 app.use('/', productRoutes);
+// app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
 
