@@ -9,7 +9,7 @@ const userCtrl = require('../controllers/users')
 
 
 router.post('/',productsCtrl.create)
-// router.get("/:id", productsCtrl.prodId);
+router.get("/:id", productsCtrl.prodId);
 
 router.get('/',productsCtrl.index)
 
