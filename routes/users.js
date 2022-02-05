@@ -4,7 +4,7 @@ const usersCtrl = require('../controllers/users');
 // GET /users
 router.get('/', usersCtrl.index);
 router.get('/users', usersCtrl.index)
-router.get('/user/:id', usersCtrl.updateUser);
+router.get('/users/:id', usersCtrl.updateUser);
 
 
 

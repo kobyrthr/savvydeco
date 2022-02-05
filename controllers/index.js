@@ -11,6 +11,7 @@ const Products = require('../models/products');
 
 const passport = require('passport');
 const User = require('../models/user');
+const Product = require('../models/products');
 
     // Products.create({
     //     title:'Neon sign',
@@ -70,22 +71,26 @@ function create(req,res){
     res.redirect('/')
 }
 
+
 function prodId(req,res){
     Products.findById(req.params.id, function (err,foundProduct){
         console.log(req.params)
         if (err) {console.log(err)}
         else {
-            const inventory = {product:foundProduct}
+
+            const product = {product:foundProduct}
             console.log(foundProduct)
-            res.render ('productId',inventory)
+            res.render ('products/show',product)
         }
     })
 }
+
 
 module.exports = {
     
     index,
     newProduct,
     create,
-    prodId
+    prodId,
+
 }

@@ -2,7 +2,9 @@ const router = require('express').Router();
 const passport = require('passport');
 const  productsCtrl = require('../controllers/index');
 const bodyParser = require('body-parser')
-const userCtrl = require('../controllers/users')
+
+
+const userCtrl = require('../controllers/users');
 
 
 router.post('/',productsCtrl.create)
@@ -28,6 +30,9 @@ router.get("/logout", (req,res)=> {
     res.redirect("/");
 })
 router.get("/:id", productsCtrl.prodId);
+
+
+router.get("products/show", productsCtrl.prodId);
 
 module.exports = router,
 {allUsers: require("./users")};
