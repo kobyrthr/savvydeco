@@ -64,18 +64,24 @@ app.use(passport.session());
 
 
 app.use('/', productRoutes);
-// app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
 
 
 //user profile
-app.get('/users/:id', function (req,res){
-  const user = userDb.findById(req.params.id)
-  res.render("users/show", {user: user});
-  console.log(user)
+// app.get('/users/:id', function (req,res){
+//   const user = userDb.findById(req.params.id)
+//   res.render("users/show", {user: user});
+//   console.log(user)
  
+// })
+
+
+// favicon error 
+app.get('/favicon.ico', function(req,res){
+  res.send("404");
 })
+
 
 /* ====== System Variables  ====== */
 const PORT = process.env.PORT || 4000; // full caps signify a config variable
