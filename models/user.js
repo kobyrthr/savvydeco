@@ -10,8 +10,8 @@ const userSchema = new Schema({
     products: [{
         type: mongoose.Schema.Types.ObjectId,
     ref: 'Product'
-}],
-    timestamps:true
+}]
+    // timestamps:true
 });
 
 

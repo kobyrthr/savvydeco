@@ -5,18 +5,20 @@
                 <ul>
                     <li><a href=''> Nav</a></li>
                     <li><a href=''> Nav</a></li>
-                    <li><a href='/users/'> user profile</a></li>
+
                 </ul>
                 <br>
                 <br>
                 <br>
                 <br>
-                 <!-- new html below -->
 
+                <!-- new html below -->
+                
+                
+          
+                <% if (user) { %>
+                    <li><a href="/users/<%=user._id%>">User Profile</a></li>
 
-                 <li><a href="/users/<%=user._id%>">User Profile</a></li>
-
-                 <% if (user) { %>
                     <a href="/logout"><i class="material-icons left"></i>Log Out</a>
                     <% } else { %>
                         <a href="/auth/google">Login with Google</a>
