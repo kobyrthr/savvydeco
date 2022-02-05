@@ -24,6 +24,28 @@
                     
                     <h5>Name:<%= user.name %></h3>
                     <p>Email:<%= user.email %></p>
+                    <a href="/new"><button>List a new product</button></a>
+
+                    <div class="row products">
+             
+
+                        <%products.forEach(product => {%>
+        
+                            <div class="columns four product-card">
+                                <div class="titleSection">
+                                    <img src="/images/favicon.png" alt="">
+                                    <p><%= product.seller %></p>
+                                </div>
+                                <img src="/images/Product image.png" alt="" class ="card-img">
+                                <h5><%= product.title %></h3>
+                                <p><%= product.longdes %></p>
+                                <a href="/products/<%= product._id%>">See Details</a>
+                
+                            </div>
+                
+                            <% }) %>
+        
+                    </div>
                    
                 </div>
       

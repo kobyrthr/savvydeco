@@ -1,6 +1,8 @@
 const Express = require('express');
 const user = require('../models/user');
 const userDb = require('../models/user');
+const Products = require('../models/products');
+
 
 
 function index(req,res){
@@ -57,13 +59,20 @@ const oneUser = (req, res) => {
 
 
 function updateUser(req,res){
-    userDb.findById(req.params.id, function (err,foundUser){
+    userDb.findById(req.params.id, function (err,user){
         console.log(req.params)
         if (err) {console.log(err)}
-        else {
-            const user = {user:foundUser}
-            console.log(foundUser)
-            res.render ('users/show',user)
+        else {            
+            Products.find({}, function(err,products){
+                if (err){
+                    console.log("There was an error:")
+                }
+                else {
+                    res.render('users/show',{
+                        products, user
+                        })
+                }
+            })
         }
     })
 }

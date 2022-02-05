@@ -5,10 +5,6 @@ module.exports = {
 
 
 const Products = require('../models/products');
-
-
-
-
 const passport = require('passport');
 const User = require('../models/user');
 const Product = require('../models/products');
@@ -34,10 +30,10 @@ const Product = require('../models/products');
 
     
     function index(req,res){
+        console.log(req.user)
         
     Products.find({}, function(err,products){
         if (err){
-            console.log("There was an error:")
         }
         else {
 
@@ -61,16 +57,38 @@ function newProduct(req,res){
 }
 
 function create(req,res){
+    console.log('this is the req.user',req.user)
     let newProd = new Products({
         title:req.body.title,
         shortdes:req.body.shortdes,
         longdes:req.body.longdes,
+        seller: req.user
     })
-    
     newProd.save()
+
+    User.findById(newProd.seller).exec(function (err, foundUser) {
+        if (err) res.send(err);
+        console.log('this is the found user',foundUser)
+        console.log('this is newProd',newProd._id)
+        // foundUser.products.push(newProd); 
+        // foundUser.save(); 
+    });
     res.redirect('/')
 }
 
+// function create(req,res){
+//     Products.create(req.body, (err, createdProduct) => {
+//     if (err) res.send(err);
+//     console.log("Product seller created is:", createdProduct)
+   
+// }
+// )
+// // newProd.save()
+// res.redirect('/')
+// }
+
+// after creating the product, find product id then find user id and update the products array for that user
+// create a function with createdProduct then 
 
 function prodId(req,res){
     Products.findById(req.params.id, function (err,foundProduct){

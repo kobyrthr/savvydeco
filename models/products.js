@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const Categories = require("../models/categories");
 const User = require('../models/user');
@@ -8,12 +9,13 @@ const productSchema = new mongoose.Schema({
     // listedDate: {type: String},
     shortdes: {type:String}, 
     longdes: {type:String},
-    // seller: {type:String}, // google auth grabbing process.env.GOOGLE_CLIENT_ID
-    // sellerLocation: {type:String},
-//     categories: [{
-//         type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Categories'
-// }],
+    seller:
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'user',
+
+        }
+    , // google auth grabbing process.env.GOOGLE_CLIENT_ID
     // googleId: {type: String},
 },
 {
