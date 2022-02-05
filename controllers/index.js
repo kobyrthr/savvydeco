@@ -40,9 +40,6 @@ const User = require('../models/user');
         }
         else {
 
-            // const inventory = {products:products}
-            // res.render('index',inventory)
-
 
             res.render('index',{
                 products,
