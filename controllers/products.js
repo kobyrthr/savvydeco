@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
       checkFileType(file, cb);
     }
   }).single('myImage');
-  
+
 // Check File Type
 function checkFileType(file, cb){
     // Allowed ext
@@ -52,16 +52,33 @@ function create(req,res){
         })
         newProd.save()
         
-        res.redirect('/',upload.single('image'), (req,res)=>{
-            console.log(req.file)
-            resizeBy.send('SingleFile upload success')
-        })
         User.findById(newProd.seller).exec(function (err, foundUser) {
             if (err) res.send(err);
             console.log('this is the found user',foundUser)
             console.log('this is newProdId',newProd._id)
             foundUser.products.push(newProd._id); 
             foundUser.save(); 
+            
+            upload(req, res, (err) => {
+                if(err){
+                  res.render('index', {
+                    msg: err
+                  });
+                } else {
+                  if(req.file == undefined){
+                    res.render('index', {
+                      msg: 'Error: No File Selected!'
+                    });
+                  } else {
+                    res.render('index', {
+                      msg: 'File Uploaded!',
+                      file: `uploads/${req.file.filename}`
+                    });
+                  }
+                }
+              });
+
+            res.redirect('/')
         });
     }
     
