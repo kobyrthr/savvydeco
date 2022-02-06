@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 
-router.get('/', function(req,res){
+router.get('/new', function(req,res){
     res.render('new');
 })
 

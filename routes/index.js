@@ -26,6 +26,9 @@ router.get("/logout", (req,res)=> {
 
 router.get("/products/:id", productsCtrl.prodId);
 router.get("products/show", productsCtrl.prodId);
+router.get('/new', function(req,res){
+    res.render('products/new');
+})
 
 module.exports = router,
 {allUsers: require("./users")};
