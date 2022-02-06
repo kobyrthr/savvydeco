@@ -48,7 +48,7 @@ const User = require('../models/user');
     
                 const product = {product:foundProduct}
                 console.log(foundProduct)
-                res.render ('products/show',product)
+                res.render ('products/prodId',product)
             }
         })
     }
