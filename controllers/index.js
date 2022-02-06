@@ -94,9 +94,6 @@ function prodId(req,res){
     })
 }
 
-function prodEdit(){
-    Products.findById(req.params.id)
-}
 
 
 module.exports = {

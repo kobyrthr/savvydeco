@@ -53,8 +53,23 @@ const User = require('../models/user');
         })
     }
 
+    function prodEdit(req,res){Products.findById(req.params.id, (err, foundProduct) => {
+        console.log('this is req:',req.params.id)
+        if (err) res.send(err);
+    
+        const context = { 
+            product: foundProduct,
+            user:req.user
+        }
+    
+        res.render("edit", context)
+    });
+    };
+    
+
 
 module.exports = {
     create,
-    prodId
+    prodId,
+    prodEdit
 }

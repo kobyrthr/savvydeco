@@ -25,6 +25,7 @@ router.get("/logout", (req,res)=> {
 })
 
 router.get("/products/:id", productsCtrl.prodId);
+router.get("/products/:id/edit", productsCtrl.prodEdit);
 router.get("products/show", productsCtrl.prodId);
 router.get('/new', function(req,res){
     res.render('products/new');
