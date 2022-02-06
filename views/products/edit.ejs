@@ -28,13 +28,13 @@
                     <div class="prodDetails four columns">
                         <form id="new-form" action="/" method="POST">
                             <label for="title">Title</label>
-                            <input type="text" name='title'>
+                            <input type="text" name='title' value ="<%= product.title %>">
                             <!-- <label for="category">Category</label>
                             <select name ='category'><br> -->
                             <label for="shortdes">Short Description</label>
-                            <input type="text" name='shortdes'>
+                            <input type="text" name='shortdes' value ="<%= product.shortdes %>">
                             <label for="longdes">Long Description</label>
-                            <input type="text" name='longdes'>
+                            <input type="text" name='longdes' value ="<%= product.longdes %>">
                             <button>Submit</button>
                             <button>Cancel</button>
                         </form> 
