@@ -60,12 +60,12 @@ const oneUser = (req, res) => {
 
 function updateUser(req,res){
     userDb.findById(req.params.id, function (err,user){
-        console.log(req.params)
+        console.log('THIS IS THE USER ID',user.id)
         if (err) {console.log(err)}
         else {            
-            Products.find({}, function(err,products){
+            Products.find({seller:user.id},function(err,products){
                 if (err){
-                    console.log("There was an error:")
+                    console.log("There was an error:",err)
                 }
                 else {
                     res.render('users/show',{
