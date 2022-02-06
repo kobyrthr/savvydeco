@@ -31,19 +31,35 @@ const Product = require('../models/products');
     
     function index(req,res){
         console.log(req.user)
-        
-    Products.find({}, function(err,products){
-        if (err){
-        }
-        else {
+        Products.find({}).populate('seller').exec(
+            
+            function(err,products){
+                if (err){
+                }
+                else {
+                    // User.findById(products.seller).exec(function (err, foundUser) {})
+                    
+                    
+                    console.log(products)
+                    res.render('index',{
+                        products,
+                        user: req.user
+                        })
+                }
+            })
+         
+    // Products.find({}, function(err,products){
+    //     if (err){
+    //     }
+    //     else {
+    //         // User.findById(products.seller).exec(function (err, foundUser) {})
 
-
-            res.render('index',{
-                products,
-                user: req.user
-                })
-        }
-    })
+    //         res.render('index',{
+    //             products,
+    //             user: req.user
+    //             })
+    //     }
+    // })
     // User.find({}, function(err, users){
     //     res.render('users/index'), {users, user: req.user}
     // });
