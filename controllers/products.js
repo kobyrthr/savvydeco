@@ -1,5 +1,6 @@
 const Products = require('../models/products')
 const User = require('../models/user');
+const multer = require('multer')
 
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
@@ -9,6 +10,7 @@ function newProd(req,res){
 // POST THE DETAILS OF NEW PRODUCT FORM TO HOME
 function create(req,res){
         console.log('this is the req.user',req.user)
+        const upload = multer({storage:fileStorageEngine})
         let newProd = new Products({
             title:req.body.title,
             shortdes:req.body.shortdes,
@@ -24,7 +26,10 @@ function create(req,res){
             foundUser.products.push(newProd._id); 
             foundUser.save(); 
         });
-        res.redirect('/')
+        res.redirect('/',upload.single('image'), (req,res)=>{
+            console.log(req.file)
+            resizeBy.send('SingleFile upload success')
+        })
     }
 
 // RENDER THE PRODUCT ID PAGE

@@ -10,6 +10,8 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const bodyParser = require('body-parser')
+const multer = require('multer')
+
 
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
@@ -20,6 +22,18 @@ const bodyParser = require('body-parser')
 // Create the Express app
 const app = express();
 // returns an object that is our server
+
+
+const fileStorageEngine = multer.diskStorage({
+  destination:(req,file,cb)=>{
+    cb(null,'./images' )
+  },
+  filename:(req, file, cb) =>{
+    cb(null, Date.now()+ '--'+file.originalname)
+  }
+})
+
+const upload = multer({storage:fileStorageEngine})
 
 //enabling ejs 
 app.set('view engine', 'ejs');
@@ -43,8 +57,9 @@ const productRoutes = require('./routes/products');
 // //(app.use)
 
 app.use(express.static('public'))
-
 app.use(express.urlencoded({ extended: false }));
+
+
 
 
 // method override Middleware
