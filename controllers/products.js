@@ -2,6 +2,40 @@ const Products = require('../models/products')
 const User = require('../models/user');
 const multer = require('multer')
 
+// Set The Storage Engine
+const storage = multer.diskStorage({
+    destination: './public/uploads/',
+    filename: function(req, file, cb){
+      cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+  });
+  
+  // Init Upload
+  const upload = multer({
+    storage: storage,
+    limits:{fileSize: 1000000},
+    fileFilter: function(req, file, cb){
+      checkFileType(file, cb);
+    }
+  }).single('myImage');
+  
+// Check File Type
+function checkFileType(file, cb){
+    // Allowed ext
+    const filetypes = /jpeg|jpg|png|gif/;
+    // Check ext
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    // Check mime
+    const mimetype = filetypes.test(file.mimetype);
+  
+    if(mimetype && extname){
+      return cb(null,true);
+    } else {
+      cb('Error: Images Only!');
+    }
+  }
+
+
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
         res.render("products/new",{user:req.user})
@@ -10,7 +44,6 @@ function newProd(req,res){
 // POST THE DETAILS OF NEW PRODUCT FORM TO HOME
 function create(req,res){
         console.log('this is the req.user',req.user)
-        const upload = multer({storage:fileStorageEngine})
         let newProd = new Products({
             title:req.body.title,
             shortdes:req.body.shortdes,
@@ -18,7 +51,11 @@ function create(req,res){
             seller: req.user
         })
         newProd.save()
-    
+        
+        res.redirect('/',upload.single('image'), (req,res)=>{
+            console.log(req.file)
+            resizeBy.send('SingleFile upload success')
+        })
         User.findById(newProd.seller).exec(function (err, foundUser) {
             if (err) res.send(err);
             console.log('this is the found user',foundUser)
@@ -26,13 +63,9 @@ function create(req,res){
             foundUser.products.push(newProd._id); 
             foundUser.save(); 
         });
-        res.redirect('/',upload.single('image'), (req,res)=>{
-            console.log(req.file)
-            resizeBy.send('SingleFile upload success')
-        })
     }
-
-// RENDER THE PRODUCT ID PAGE
+    
+    // RENDER THE PRODUCT ID PAGE
     function prodId(req,res){
         Products.findById(req.params.id, function (err,foundProduct){
             console.log(req.params)
