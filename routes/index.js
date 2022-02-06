@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 const  indexCtrl = require('../controllers/index');
-const  productsCtrl = require('../controllers/products');
 const bodyParser = require('body-parser')
-const userCtrl = require('../controllers/users');
 
 router.get('/',indexCtrl.index)
 
@@ -23,10 +21,6 @@ router.get("/logout", (req,res)=> {
     req.logout();
     res.redirect("/");
 })
-
-// router.get('/new', function(req,res){
-//     res.render('products/new');
-// })
 
 module.exports = router,
 {allUsers: require("./users")};

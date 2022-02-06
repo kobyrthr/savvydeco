@@ -1,11 +1,12 @@
 const Products = require('../models/products')
 const User = require('../models/user');
 
-   
+// RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
         res.render("products/new",{user:req.user})
 };
 
+// POST THE DETAILS OF NEW PRODUCT FORM TO HOME
 function create(req,res){
         console.log('this is the req.user',req.user)
         let newProd = new Products({
@@ -26,6 +27,7 @@ function create(req,res){
         res.redirect('/')
     }
 
+// RENDER THE PRODUCT ID PAGE
     function prodId(req,res){
         Products.findById(req.params.id, function (err,foundProduct){
             console.log(req.params)
