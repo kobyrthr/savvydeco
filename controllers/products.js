@@ -1,26 +1,12 @@
 const Products = require('../models/products')
 const User = require('../models/user');
 
-    // Products.create({
-    //     title:'Neon sign',
-    //     shortdes:'neon vibes',
-    //     longdes:'super rare. no low ball offers!',
-    //     seller:'Mike'
+   
+function newProd(req,res){
+        res.render("products/new",{user:req.user})
+};
 
-    // },
-    // {
-    //     title:'Bookshelf',
-    //     shortdes:'Half off',
-    //     longdes:'Moving. Must go this weekend',
-    //     seller:'Renee'
-
-    // }),
-    // function (err){
-    //     if (err){console.log("There was an error",err)}
-    //     else { console.log('no errors')}
-    // }
-    
-    function create(req,res){
+function create(req,res){
         console.log('this is the req.user',req.user)
         let newProd = new Products({
             title:req.body.title,
@@ -69,6 +55,7 @@ const User = require('../models/user');
 
 
 module.exports = {
+    newProd,
     create,
     prodId,
     prodEdit

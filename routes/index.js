@@ -24,9 +24,9 @@ router.get("/logout", (req,res)=> {
     res.redirect("/");
 })
 
-router.get('/new', function(req,res){
-    res.render('products/new');
-})
+// router.get('/new', function(req,res){
+//     res.render('products/new');
+// })
 
 module.exports = router,
 {allUsers: require("./users")};
