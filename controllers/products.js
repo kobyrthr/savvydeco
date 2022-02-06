@@ -50,37 +50,48 @@ function create(req,res){
             longdes:req.body.longdes,
             seller: req.user
         })
+        
         newProd.save()
         
-        User.findById(newProd.seller).exec(function (err, foundUser) {
-            if (err) res.send(err);
-            console.log('this is the found user',foundUser)
-            console.log('this is newProdId',newProd._id)
-            foundUser.products.push(newProd._id); 
-            foundUser.save(); 
-            
-            upload(req, res, (err) => {
-                if(err){
-                  res.render('index', {
+        
+        upload(req, res, (err) => {
+            if(err){
+                res.render('index', {
                     msg: err
-                  });
-                } else {
-                  if(req.file == undefined){
+                });
+            } else {
+                if(req.file == undefined){
                     res.render('index', {
-                      msg: 'Error: No File Selected!'
+                        msg: 'Error: No File Selected!'
                     });
-                  } else {
-                    res.render('index', {
+                } else {
+                    
+                    
+                    User.findById(newProd.seller).exec(function (err, foundUser) {
+                        if (err) res.send(err);
+                        console.log('this is the found user',foundUser)
+                        console.log('this is newProdId',newProd._id)
+                        foundUser.products.push(newProd._id); 
+                        foundUser.save(); 
+
+                    res.render('/', {
                       msg: 'File Uploaded!',
-                      file: `uploads/${req.file.filename}`
+                      file: `uploads/${req.file.filename}`,
+                      user:req.user
                     });
                   }
+                    )}
+              
                 }
-              });
+            })
 
-            res.redirect('/')
-        });
-    }
+        }
+        
+            
+            
+            
+
+            // res.redirect('/')
     
     // RENDER THE PRODUCT ID PAGE
     function prodId(req,res){

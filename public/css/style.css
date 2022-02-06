@@ -71,6 +71,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    flex-wrap:wrap;
 }
 
 .categories button{
@@ -78,21 +79,35 @@ align-items: center;
     border: solid var(--black) 1px;
     color: var(--black);
     height: 48px;
-    margin: 24px;
+    margin: 14px;
 }
 
 .products{
     display: flex;
     justify-content: space-between;
+    flex-wrap:wrap;
 }
+
+.products div{
+    margin-top: 24px;
+    margin-right: 2%;
+}
+
 
 .card-img{
 width:100%
 }
 
-@media(max-width:600px){
 
+@media (min-width: 350px) {
 
+    .hero .row button{
+        width:100%
+     }
+     
+    .hero .row div:nth-child(2){
+       display: none;
+    }
 
-    
 }
+
