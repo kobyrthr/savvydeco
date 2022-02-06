@@ -30,17 +30,12 @@ const Product = require('../models/products');
 
     
     function index(req,res){
-        console.log(req.user)
         Products.find({}).populate('seller').exec(
             
             function(err,products){
                 if (err){
                 }
                 else {
-                    // User.findById(products.seller).exec(function (err, foundUser) {})
-                    
-                    
-                    console.log(products)
                     res.render('index',{
                         products,
                         user: req.user
