@@ -34,9 +34,12 @@ function create(req,res){
             if (err) {console.log(err)}
             else {
     
-                const product = {product:foundProduct}
+                const context = {
+                    product:foundProduct,
+                    user:req.user
+                }
                 console.log(foundProduct)
-                res.render ('products/prodId',product)
+                res.render ('products/prodId',context)
             }
         })
     }
@@ -50,7 +53,7 @@ function create(req,res){
             user:req.user
         }
     
-        res.render("edit", context)
+        res.render("products/edit", context)
     });
     };
     
