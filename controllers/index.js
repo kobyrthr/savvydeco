@@ -9,26 +9,6 @@ const passport = require('passport');
 const User = require('../models/user');
 const Product = require('../models/products');
 
-    // Products.create({
-    //     title:'Neon sign',
-    //     shortdes:'neon vibes',
-    //     longdes:'super rare. no low ball offers!',
-    //     seller:'Mike'
-
-    // },
-    // {
-    //     title:'Bookshelf',
-    //     shortdes:'Half off',
-    //     longdes:'Moving. Must go this weekend',
-    //     seller:'Renee'
-
-    // }),
-    // function (err){
-    //     if (err){console.log("There was an error",err)}
-    //     else { console.log('no errors')}
-    // }
-
-    
     function index(req,res){
         Products.find({}).populate('seller').exec(
             
@@ -43,9 +23,6 @@ const Product = require('../models/products');
                 }
             })    
 }
-
-
-
 
 function create(req,res){
     console.log('this is the req.user',req.user)
@@ -67,20 +44,6 @@ function create(req,res){
     res.redirect('/')
 }
 
-// function create(req,res){
-//     Products.create(req.body, (err, createdProduct) => {
-//     if (err) res.send(err);
-//     console.log("Product seller created is:", createdProduct)
-   
-// }
-// )
-// // newProd.save()
-// res.redirect('/')
-// }
-
-// after creating the product, find product id then find user id and update the products array for that user
-// create a function with createdProduct then 
-
 function prodId(req,res){
     Products.findById(req.params.id, function (err,foundProduct){
         console.log(req.params)
@@ -93,8 +56,6 @@ function prodId(req,res){
         }
     })
 }
-
-
 
 module.exports = {
     
