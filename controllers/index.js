@@ -46,31 +46,11 @@ const Product = require('../models/products');
                         user: req.user
                         })
                 }
-            })
-         
-    // Products.find({}, function(err,products){
-    //     if (err){
-    //     }
-    //     else {
-    //         // User.findById(products.seller).exec(function (err, foundUser) {})
-
-    //         res.render('index',{
-    //             products,
-    //             user: req.user
-    //             })
-    //     }
-    // })
-    // User.find({}, function(err, users){
-    //     res.render('users/index'), {users, user: req.user}
-    // });
-
-    
+            })    
 }
 
 
-function newProduct(req,res){
-    res.render('new')
-}
+
 
 function create(req,res){
     console.log('this is the req.user',req.user)
@@ -119,11 +99,14 @@ function prodId(req,res){
     })
 }
 
+function prodEdit(){
+    Products.findById(req.params.id)
+}
+
 
 module.exports = {
     
     index,
-    newProduct,
     create,
     prodId,
 
