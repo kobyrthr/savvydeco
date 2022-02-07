@@ -66,12 +66,13 @@ function create(req,res){
 
   User.findById(newProd.seller).exec(function (err, foundUser) {
       if (err) res.send(err);
-      //console.log('this is the found user',foundUser)
+      console.log('this is the found user',foundUser)
       //console.log('this is newProdId',newProd._id)
       foundUser.products.push(newProd._id); 
       foundUser.save(); 
+
   });
-  res.redirect('/')
+  res.redirect('/' )
 }
     
     // RENDER THE PRODUCT ID PAGE
@@ -80,13 +81,19 @@ function create(req,res){
           //  console.log(req.params)
             if (err) {console.log(err)}
             else {
-    
-                const context = {
-                    product:foundProduct,
-                    user:req.user
-                }
-                console.log(foundProduct)
-                res.render ('products/prodId',context)
+
+    User.findById(foundProduct.seller, function (err, foundSeller){
+      const context = {
+        product:foundProduct,
+        seller: foundSeller,
+        user:req.user
+    }
+    console.log(foundProduct)
+    res.render ('products/prodId',context)
+
+
+    })
+              
             }
         })
     }
@@ -157,4 +164,5 @@ module.exports = {
     prodEdit,
     prodUpdate,
     prodDestroy,
+    upload,
 }
