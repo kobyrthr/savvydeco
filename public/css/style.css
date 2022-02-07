@@ -27,10 +27,10 @@ nav ul{
 }
 
 
-li{
+nav li{
     list-style-type: none;
     display: inline;
-    margin-bottom: 0;
+    margin: 0 16px;
 }
 
 button{
@@ -71,6 +71,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    flex-wrap:wrap;
 }
 
 .categories button{
@@ -78,14 +79,56 @@ align-items: center;
     border: solid var(--black) 1px;
     color: var(--black);
     height: 48px;
-    margin: 24px;
+    margin: 14px;
 }
 
 .products{
     display: flex;
     justify-content: space-between;
+    flex-wrap:wrap;
+    padding: 24px;
 }
 
+.products div{
+    margin-top: 24px;
+    margin-right: 2%;
+    margin-left: 0;
+}
+
+.products button{
+    width: 100%;
+}
+
+
 .card-img{
-width:100%
+width:100%;
+}
+
+.userDetails{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.userDetails .one{
+    width: 100%;
+    margin-top:3%;
+}
+
+.prodFormBox{
+    margin-top:3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prodFormBox h3 {
+    text-align: center;
+}
+
+.prodDetails *{
+width: 100%;
 }

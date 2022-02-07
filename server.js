@@ -11,6 +11,7 @@ require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const bodyParser = require('body-parser')
 
+
 /* ====== Internal Modules  ====== */
 // Required Internal Modules
 // all code that is our code
@@ -43,8 +44,9 @@ const productRoutes = require('./routes/products');
 // //(app.use)
 
 app.use(express.static('public'))
-
 app.use(express.urlencoded({ extended: false }));
+
+
 
 
 // method override Middleware

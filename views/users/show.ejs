@@ -20,11 +20,14 @@
     <body>
 
         
-        
-                    
-                    <h5>Name:<%= user.name %></h3>
-                    <p>Email:<%= user.email %></p>
-                    <a href="/new"><button>List a new product</button></a>
+        <%- include('../partials/nav.ejs') %>
+
+                    <div class="row userDetails">
+                        <div class="one column">
+                            <h5><%= user.name %>'s<br> Seller Page</h3>        
+                            <a href="/new"><button>List a new product</button></a>
+                        </div>
+                    </div>
 
                     <div class="row products">
              

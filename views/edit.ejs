@@ -19,8 +19,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <nav><a href="/">Home</a></nav>
-            <h1>This is the edit page</h1>
+            <h1>new product page</h1>
 
             <div class="container">
                 <div class="row">
@@ -29,13 +28,13 @@
                     <div class="prodDetails four columns">
                         <form id="new-form" action="/" method="POST">
                             <label for="title">Title</label>
-                            <input type="text" name='title'>
+                            <input type="text" name='title' value ="<%= product.title %>">
                             <!-- <label for="category">Category</label>
                             <select name ='category'><br> -->
                             <label for="shortdes">Short Description</label>
-                            <input type="text" name='shortdes'>
+                            <input type="text" name='shortdes' value ="<%= product.shortdes %>">
                             <label for="longdes">Long Description</label>
-                            <input type="text" name='longdes'>
+                            <input type="text" name='longdes' value ="<%= product.longdes %>">
                             <button>Submit</button>
                             <button>Cancel</button>
                         </form> 

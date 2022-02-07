@@ -19,13 +19,12 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-            <h1>new product page</h1>
-
-            <div class="container">
-                <div class="row">
-                    <div class="prodImg eight columns">
-                    </div>
-                    <div class="prodDetails four columns">
+        <%- include('../partials/nav.ejs') %>
+        
+        <div class="container">
+            <div class="row prodFormBox">
+                <div class="prodDetails six columns">
+                        <h3>Add a new product</h3>
                         <form id="new-form" action="/" method="POST">
                             <label for="title">Title</label>
                             <input type="text" name='title'>
@@ -35,6 +34,7 @@
                             <input type="text" name='shortdes'>
                             <label for="longdes">Long Description</label>
                             <input type="text" name='longdes'>
+                            <input type="file" class="form-control" name="images" id="formFile">
                             <button>Submit</button>
                             <button>Cancel</button>
                         </form> 

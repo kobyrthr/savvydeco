@@ -18,7 +18,7 @@
         <script src="" async defer></script>
     </head>
     <body>
-        <nav><a href="/">Home</a></nav>
+        <%- include('../partials/nav.ejs') %>
         
         
         
@@ -35,6 +35,12 @@
                     <p><%= product.shortdes %></p>
                     <p><%= product.longdes %></p>
                     <button>Contact</button>
+                    
+                    <% if(user){%>
+
+                        <button>Edit</button>
+
+                    <%}%>
         
                 </div>
       

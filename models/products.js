@@ -15,8 +15,12 @@ const productSchema = new mongoose.Schema({
             ref:'user',
 
         }
-    , // google auth grabbing process.env.GOOGLE_CLIENT_ID
-    // googleId: {type: String},
+    ,
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
 },
 {
     timestamps:true
