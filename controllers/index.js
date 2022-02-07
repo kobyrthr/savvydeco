@@ -8,6 +8,7 @@ const passport = require('passport');
                 if (err){
                 }
                 else {
+
                     res.render('index',{
                         products,
                         user: req.user

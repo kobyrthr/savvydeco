@@ -6,7 +6,7 @@ const User = require('../models/user');
 const productSchema = new mongoose.Schema({
     id:{type:String},
     title: {type: String, required:true,},
-    // listedDate: {type: String},
+ listedDate: {type:Date, default:Date.now} ,
     shortdes: {type:String}, 
     longdes: {type:String},
     seller:
