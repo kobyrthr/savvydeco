@@ -24,16 +24,24 @@
             <div class="row prodFormBox">
                 <div class="prodDetails six columns">
                     <h3>Edit this product</h3>
-                            <form id="new-form" action="/" method="POST">
+                            <form id="new-form" action="/products/<%=product._id%>" method="POST">
                                 <label for="title">Title</label>
                                 <input type="text" name='title' value ="<%= product.title %>">
+                              
+                              
                                 <!-- <label for="category">Category</label>
                                 <select name ='category'><br> -->
+
                                 <label for="shortdes">Short Description</label>
-                                <input type="text" name='shortdes' value ="<%= product.shortdes %>">
+                                <textarea type="text" name="body" placeholder="shortdes">
+                                    <%= product.shortdes %></textarea>
+                                                                                            
                                 <label for="longdes">Long Description</label>
-                                <input type="text" name='longdes' value ="<%= product.longdes %>">
-                                <button>Submit</button>
+                                <textarea type="text" name="body" placeholder="longdes">
+                                    <%= product.longdes %></textarea>
+
+                            
+				<input type="submit" value="Update Product" />
                                 <button>Cancel</button>
                             </form> 
                         

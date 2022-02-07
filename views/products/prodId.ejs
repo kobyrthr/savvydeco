@@ -36,12 +36,7 @@
                     <p><%= product.longdes %></p>
                     <button>Contact</button>
                     
-                    <% if(user){%>
-
-                        <button>Edit</button>
-
-                    <%}%>
-        
+                    <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
                 </div>
       
 
