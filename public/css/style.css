@@ -27,10 +27,10 @@ nav ul{
 }
 
 
-li{
+nav li{
     list-style-type: none;
     display: inline;
-    margin-bottom: 0;
+    margin: 0 16px;
 }
 
 button{
@@ -95,6 +95,10 @@ align-items: center;
     margin-left: 0;
 }
 
+.products button{
+    width: 100%;
+}
+
 
 .card-img{
 width:100%;
@@ -112,4 +116,19 @@ width:100%;
 .userDetails .one{
     width: 100%;
     margin-top:3%;
+}
+
+.prodFormBox{
+    margin-top:3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prodFormBox h3 {
+    text-align: center;
+}
+
+.prodDetails *{
+width: 100%;
 }
