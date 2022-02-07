@@ -41,57 +41,26 @@ function newProd(req,res){
         res.render("products/new",{user:req.user})
 };
 
-// POST THE DETAILS OF NEW PRODUCT FORM TO HOME
+/// POST THE DETAILS OF NEW PRODUCT FORM TO HOME
 function create(req,res){
-        console.log('this is the req.user',req.user)
-        let newProd = new Products({
-            title:req.body.title,
-            shortdes:req.body.shortdes,
-            longdes:req.body.longdes,
-            seller: req.user
-        })
-        
-        newProd.save()
-        
-        
-        upload(req, res, (err) => {
-            if(err){
-                res.render('index', {
-                    msg: err
-                });
-            } else {
-                if(req.file == undefined){
-                    res.render('index', {
-                        msg: 'Error: No File Selected!'
-                    });
-                } else {
-                    
-                    
-                    User.findById(newProd.seller).exec(function (err, foundUser) {
-                        if (err) res.send(err);
-                        console.log('this is the found user',foundUser)
-                        console.log('this is newProdId',newProd._id)
-                        foundUser.products.push(newProd._id); 
-                        foundUser.save(); 
+  console.log('this is the req.user',req.user)
+  let newProd = new Products({
+      title:req.body.title,
+      shortdes:req.body.shortdes,
+      longdes:req.body.longdes,
+      seller: req.user
+  })
+  newProd.save()
 
-                    res.render('/', {
-                      msg: 'File Uploaded!',
-                      file: `uploads/${req.file.filename}`,
-                      user:req.user
-                    });
-                  }
-                    )}
-              
-                }
-            })
-
-        }
-        
-            
-            
-            
-
-            // res.redirect('/')
+  User.findById(newProd.seller).exec(function (err, foundUser) {
+      if (err) res.send(err);
+      console.log('this is the found user',foundUser)
+      console.log('this is newProdId',newProd._id)
+      foundUser.products.push(newProd._id); 
+      foundUser.save(); 
+  });
+  res.redirect('/')
+}
     
     // RENDER THE PRODUCT ID PAGE
     function prodId(req,res){
