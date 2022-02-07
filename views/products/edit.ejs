@@ -23,28 +23,26 @@
         <div class="container">
             <div class="row prodFormBox">
                 <div class="prodDetails six columns">
-                    <h3>Edit this product</h3>
-                            <form id="new-form" action="/products/<%=product._id%>?_method=PUT" method="POST">
-                                <label for="title">Title</label>
-                                <input type="text" name='title' value ="<%= product.title %>">
-                              
-                              
-                                <!-- <label for="category">Category</label>
-                                <select name ='category'><br> -->
-
+                    <main>
+                        <h1>Edit <%= product.title %></h1>
+                        <form action="/products/<%= product._id%>?_method=PUT" method="POST">
+                            <p>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    placeholder="Title"
+                                    value="<%= product.title %>"
+                                />
+                            </p>
+                            <p>
                                 <label for="shortdes">Short Description</label>
-                                <textarea type="text" name="body" placeholder="shortdes">
-                                    <%= product.shortdes %></textarea>
-                                                                                            
+                                <input type="text" name='shortdes' value ="<%= product.shortdes %>">
                                 <label for="longdes">Long Description</label>
-                                <textarea type="text" name="body" placeholder="longdes">
-                                    <%= product.longdes %></textarea>
-
-                                  
-                  <a href="/products/<%=product._id%>/edit"><button type = "submit" value="update product">Edit Product</button></a>
-                                <button>Cancel</button>
-                            </form> 
-                        
+                                <input type="text" name='longdes' value ="<%= product.longdes %>">
+                            </p>
+                            <input type="submit" value="Update product" />
+                        </form>
+                    </main>
                     </div>
                 </div>
             </div>

@@ -110,7 +110,7 @@ const prodUpdate = (req, res) => {
 
       (err, updatedProduct) => {
           if (err) res.send(err);
-
+console.log("this is updated product" + updatedProduct)
           res.redirect(`/products/${updatedProduct._id}`);
       }
   );
