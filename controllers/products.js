@@ -79,6 +79,8 @@ function create(req,res){
         })
     }
 
+
+    //EDIT PRODUCT
     function prodEdit(req,res){Products.findById(req.params.id, (err, foundProduct) => {
         console.log('this is req:',req.params.id)
         if (err) res.send(err);
@@ -93,10 +95,54 @@ function create(req,res){
     };
     
 
+//UPDATE PRODUCT AFTER EDIT
+
+const prodUpdate = (req, res) => {
+  Products.findByIdAndUpdate(
+      req.params.id,
+      { 
+          $set: {
+
+              ...req.body,
+          },
+      },
+      { new: true },
+
+      (err, updatedProduct) => {
+          if (err) res.send(err);
+
+          res.redirect(`/products/${updatedProduct._id}`);
+      }
+  );
+}
+
+
+
+// delete
+
+const prodDestroy = (req, res) => {
+  Products.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
+      if (err) res.send(err);
+
+     
+      Products.findById(deletedProduct.user, (err, foundProduct) => {
+          foundProduct.product.remove(deletedProduct);
+          foundProduct.save();
+          const user = { user: deletedProduct.user}
+console.log("This is deleted user: " + user)
+          res.redirect(`/users/${user._id}`)
+      })
+  })
+}
+
+
+
 
 module.exports = {
     newProd,
     create,
     prodId,
-    prodEdit
+    prodEdit,
+    prodUpdate,
+    prodDestroy,
 }

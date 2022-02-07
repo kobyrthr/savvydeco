@@ -24,7 +24,7 @@
             <div class="row prodFormBox">
                 <div class="prodDetails six columns">
                     <h3>Edit this product</h3>
-                            <form id="new-form" action="/products/<%=product._id%>" method="POST">
+                            <form id="new-form" action="/products/<%=product._id%>?_method=PUT" method="POST">
                                 <label for="title">Title</label>
                                 <input type="text" name='title' value ="<%= product.title %>">
                               
@@ -40,8 +40,8 @@
                                 <textarea type="text" name="body" placeholder="longdes">
                                     <%= product.longdes %></textarea>
 
-                            
-				<input type="submit" value="Update Product" />
+                                  
+                  <a href="/products/<%=product._id%>/edit"><button type = "submit" value="update product">Edit Product</button></a>
                                 <button>Cancel</button>
                             </form> 
                         

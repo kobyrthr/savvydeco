@@ -35,8 +35,15 @@
                     <p><%= product.shortdes %></p>
                     <p><%= product.longdes %></p>
                     <button>Contact</button>
-                    
+                  
+                    <% if (user) { %>
+                      
                     <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
+
+                        <% } else { %>
+                            <a href="/auth/google"><button>Login to post</button></a>
+                            <% } %>
+                            
                 </div>
       
 
