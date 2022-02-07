@@ -35,13 +35,20 @@
                     <p><%= product.shortdes %></p>
                     <p><%= product.longdes %></p>
                     <button>Contact</button>
-                    
-                    <% if(user){%>
+                  
+                    <% if (user) { %>
+                      
+                    <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
+                    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" />
+                    </form>
 
-                        <button>Edit</button>
-
-                    <%}%>
-        
+                 
+                    </form>  
+                        <% } else { %>
+                            <a href="/auth/google"><button>Login to post</button></a>
+                            <% } %>
+                            
                 </div>
       
 

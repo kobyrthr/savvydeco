@@ -36,6 +36,18 @@ function checkFileType(file, cb){
   }
 
 
+//show all Products
+
+//   const getAll = (req, res) => {
+//     res.render("/", {
+//         snails: db.Snail.getAll(),
+//         time: req.time
+//     })
+// }
+
+
+
+
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
         res.render("products/new",{user:req.user})
@@ -43,7 +55,7 @@ function newProd(req,res){
 
 /// POST THE DETAILS OF NEW PRODUCT FORM TO HOME
 function create(req,res){
-  console.log('this is the req.user',req.user)
+  //console.log('this is the req.user',req.user)
   let newProd = new Products({
       title:req.body.title,
       shortdes:req.body.shortdes,
@@ -54,8 +66,8 @@ function create(req,res){
 
   User.findById(newProd.seller).exec(function (err, foundUser) {
       if (err) res.send(err);
-      console.log('this is the found user',foundUser)
-      console.log('this is newProdId',newProd._id)
+      //console.log('this is the found user',foundUser)
+      //console.log('this is newProdId',newProd._id)
       foundUser.products.push(newProd._id); 
       foundUser.save(); 
   });
@@ -65,7 +77,7 @@ function create(req,res){
     // RENDER THE PRODUCT ID PAGE
     function prodId(req,res){
         Products.findById(req.params.id, function (err,foundProduct){
-            console.log(req.params)
+          //  console.log(req.params)
             if (err) {console.log(err)}
             else {
     
@@ -79,8 +91,10 @@ function create(req,res){
         })
     }
 
+
+    //EDIT PRODUCT
     function prodEdit(req,res){Products.findById(req.params.id, (err, foundProduct) => {
-        console.log('this is req:',req.params.id)
+       // console.log('this is req:',req.params.id)
         if (err) res.send(err);
     
         const context = { 
@@ -93,10 +107,54 @@ function create(req,res){
     };
     
 
+//UPDATE PRODUCT AFTER EDIT
+
+const prodUpdate = (req, res) => {
+  Products.findByIdAndUpdate(
+      req.params.id,
+      { 
+          $set: {
+
+              ...req.body,
+          },
+      },
+      { new: true },
+
+      (err, updatedProduct) => {
+          if (err) res.send(err);
+//console.log("this is updated product" + updatedProduct)
+          res.redirect(`/products/${updatedProduct._id}`);
+      }
+  );
+}
+
+
+
+// delete
+
+const prodDestroy = (req, res) => {
+  Products.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
+      if (err) res.send(err);
+      console.log("deleted prod" + deletedProduct)
+console.log("deleted prod seller" +deletedProduct.seller)
+
+      User.findById(deletedProduct.seller, (err, foundSeller) => {
+
+console.log(`foundseller is this` + foundSeller)    
+          foundSeller.products.remove(deletedProduct);
+          foundSeller.save();
+
+          res.redirect(`/users/${foundSeller._id}`)
+      })
+  })
+}
+
 
 module.exports = {
     newProd,
     create,
     prodId,
-    prodEdit
+    prodEdit,
+    prodUpdate,
+    prodDestroy,
 }
