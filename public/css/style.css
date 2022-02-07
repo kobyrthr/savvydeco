@@ -91,23 +91,23 @@ align-items: center;
 .products div{
     margin-top: 24px;
     margin-right: 2%;
+    margin-left: 0;
 }
 
 
 .card-img{
-width:100%
+width:100%;
+}
+
+.userDetails{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
 }
 
 
-@media (min-width: 350px) {
-
-    .hero .row button{
-        width:100%
-     }
-     
-    .hero .row div:nth-child(2){
-       display: none;
-    }
-
+.userDetails .one{
+    width: 100%;
 }
-
