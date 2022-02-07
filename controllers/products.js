@@ -36,6 +36,18 @@ function checkFileType(file, cb){
   }
 
 
+//show all Products
+
+//   const getAll = (req, res) => {
+//     res.render("/", {
+//         snails: db.Snail.getAll(),
+//         time: req.time
+//     })
+// }
+
+
+
+
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
         res.render("products/new",{user:req.user})
@@ -136,8 +148,6 @@ console.log(`foundseller is this` + foundSeller)
       })
   })
 }
-
-
 
 
 module.exports = {
