@@ -23,13 +23,14 @@ Create a web application that allows users to sign up and sell their own furnitu
 
 ![header](https://github.com/imanirak/savvydeco/blob/main/readmephotos/userflow.png)
 
--For a better view please click <a href="https://www.figma.com/file/nt6Dnu0qR1HqGa5HXAqnvg/Savvy-Deco?node-id=0%3A1" >here</a>
+
+- For a better view please click <a href="https://www.figma.com/file/nt6Dnu0qR1HqGa5HXAqnvg/Savvy-Deco?node-id=0%3A1" >here</a>
 
 # Entity Relation Diagram:
 
 ![header](https://github.com/imanirak/savvydeco/blob/main/readmephotos/databasemERD.png)
 
--For a better view of ERD please check  <a href="https://www.figma.com/file/nt6Dnu0qR1HqGa5HXAqnvg/Savvy-Deco?node-id=9%3A1323" >here</a>
+- For a better view of ERD please check  <a href="https://www.figma.com/file/nt6Dnu0qR1HqGa5HXAqnvg/Savvy-Deco?node-id=9%3A1323" >here</a>
 
 # Wire Frames:
 
@@ -40,7 +41,7 @@ Create a web application that allows users to sign up and sell their own furnitu
 ![header](https://github.com/imanirak/savvydeco/blob/main/readmephotos/wireframe2.png)
 
 
--For a better view of all Wire frames please check  <a href="https://www.figma.com/file/nt6Dnu0qR1HqGa5HXAqnvg/Savvy-Deco?node-id=0%3A1" >here</a>
+- For a better view of all Wire frames please check  <a href="https://www.figma.com/file/nt6Dnu0qR1HqGa5HXAqnvg/Savvy-Deco?node-id=0%3A1" >here</a>
 
 
 # Deployment 
@@ -61,8 +62,8 @@ Create a web application that allows users to sign up and sell their own furnitu
 
 # Words of Wisdom:
 
--Planning ahead definitely helped alot, it allowed us to stay on track and know what we needed to accomplish in a timely manner.
--Communication is key, we utilized notion to stay on tasks and be aware of who will be completing what. We also continued to chat on Slack when required.
+- Planning ahead definitely helped alot, it allowed us to stay on track and know what we needed to accomplish in a timely manner.
+- Communication is key, we utilized notion to stay on tasks and be aware of who will be completing what. We also continued to chat on Slack when required.
 - Dont be afraid to ask your partner for help! They could discover an issue thats hiding right under your nose.
 
 # Proud Code:
