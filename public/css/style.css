@@ -8,6 +8,9 @@
     --white: #FFFFFF;
     --brownLight:#FFF8EC;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: var(--brownLight);
 }
