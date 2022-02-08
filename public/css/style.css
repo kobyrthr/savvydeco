@@ -148,10 +148,37 @@ header{
     right: 0;
     height: 80px;
     align-items: center;
-    box-shadow: 0 0 10px 0 black;
+    box-shadow: 0 0 10px 0 lightgray;
+    width: 100%;
+    
 }
  header img {
      margin:0;
      padding:0;
     
  }
+
+
+ .secondaryBtn{
+     background-color: transparent;
+     border:1px solid var(--black);
+     color: var(--black);
+     height: 40px;
+ }
+
+ .secondaryBtn:hover{
+     color: var(--brownLight);
+     background-color: var(--black);
+     border: none;
+ }
+
+ #shopAll{
+     scroll-behavior: smooth;
+     overflow-y: scroll;
+ }
+
+
+ .scrlbtn{
+     padding: 40px;
+ }
+
