@@ -36,15 +36,16 @@ function checkFileType(file, cb){
   }
 
 
-//show all Products
+// show all Products
 
-//   const getAll = (req, res) => {
-//     res.render("/", {
-//         snails: db.Snail.getAll(),
-//         time: req.time
-//     })
-// }
 
+function getAll(req,res){
+  Products.find({}, function(err, allProducts){
+      res.render('products/allProducts'), {allProducts}
+  
+  });
+
+}
 
 
 
@@ -171,4 +172,5 @@ module.exports = {
     prodUpdate,
     prodDestroy,
     upload,
+    getAll,
 }

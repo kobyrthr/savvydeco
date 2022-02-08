@@ -12,18 +12,27 @@ body{
     background-color: var(--brownLight);
 }
 
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 nav{
     display: flex;
     align-items: center;
     height: 72px;
     width: 100%;
     justify-content: center;
+    background-color:var(--brownLight);
+
+    
 }
 
 nav ul{
     margin: 0;
     float: right;
     justify-self: flex-end;
+   
 }
 
 
@@ -132,3 +141,17 @@ width:100%;
 .prodDetails *{
 width: 100%;
 }
+
+header{
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    align-items: center;
+    box-shadow: 0 0 10px 0 black;
+}
+ header img {
+     margin:0;
+     padding:0;
+    
+ }
