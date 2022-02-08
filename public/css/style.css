@@ -7,12 +7,7 @@
     --greyLightest: #F1F5F9;
     --white: #FFFFFF;
     --brownLight:#FFF8EC;
-    
 }
-
-html {
-    scroll-behavior: smooth;
-  }
 body{
     background-color: var(--brownLight);
 }
@@ -29,8 +24,6 @@ nav{
     width: 100%;
     justify-content: center;
     background-color:var(--brownLight);
-    /* position: fixed; */
-    z-index: 5;
 
     
 }
@@ -47,10 +40,6 @@ nav li{
     list-style-type: none;
     display: inline;
     margin: 0 16px;
-}
-
-nav li:hover{
-    text-decoration: underline;
 }
 
 button{
@@ -154,10 +143,10 @@ width: 100%;
 }
 
 header{
-    /* top: 0;
+    top: 0;
     left: 0;
-    right: 0; */
-    /* height: 80px; */
+    right: 0;
+    height: 80px;
     align-items: center;
     box-shadow: 0 0 10px 0 lightgray;
     width: 100%;
@@ -168,6 +157,7 @@ header{
      padding:0;
     
  }
+
 
  .secondaryBtn{
      background-color: transparent;
@@ -191,3 +181,4 @@ header{
  .scrlbtn{
      padding: 40px;
  }
+
