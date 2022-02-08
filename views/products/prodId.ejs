@@ -35,7 +35,7 @@
                     <p><%= product.longdes %></p>
 
                     <a href="mailto:<%=seller.email%>"><button>Contact</button></a>
-                    <% if (user) { %>
+                    <% if (seller) { %>
                       
                     <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
                     <form action="/products/<%= product._id %>?_method=DELETE" method="POST">

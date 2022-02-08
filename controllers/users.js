@@ -22,7 +22,7 @@ const oneUser = (req, res) => {
 
 function updateUser(req,res){
     userDb.findById(req.params.id, function (err,user){
-        console.log('THIS IS THE USER ID',user.id)
+     
         if (err) {console.log(err)}
         else {            
             Products.find({seller:user.id},function(err,products){
