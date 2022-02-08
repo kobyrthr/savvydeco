@@ -160,8 +160,6 @@ header{
     /* height: 80px; */
     align-items: center;
     box-shadow: 0 0 10px 0 lightgray;
-    position: fixed;
-    z-index: 5;
     width: 100%;
     
 }
@@ -187,4 +185,9 @@ header{
  #shopAll{
      scroll-behavior: smooth;
      overflow-y: scroll;
+ }
+
+
+ .scrlbtn{
+     padding: 40px;
  }
