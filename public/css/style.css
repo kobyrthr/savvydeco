@@ -24,6 +24,8 @@ nav{
     width: 100%;
     justify-content: center;
     background-color:var(--brownLight);
+    /* position: fixed; */
+    z-index: 5;
 
     
 }
@@ -143,12 +145,16 @@ width: 100%;
 }
 
 header{
-    top: 0;
+    /* top: 0;
     left: 0;
-    right: 0;
-    height: 80px;
+    right: 0; */
+    /* height: 80px; */
     align-items: center;
     box-shadow: 0 0 10px 0 black;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    
 }
  header img {
      margin:0;

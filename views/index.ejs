@@ -46,14 +46,12 @@
 
                 <%products.forEach(product => {%>
 
-                    <div class="columns four product-card">
+                    <div class="columns three product-card">
                         <div class="titleSection">
                         </div>
-                          <h6><%= product.title %></h6>
+                          <h5><%= product.title %></h5>
                         <img src="/images/Product image.png" alt="" class ="card-img">
-                        
                         <p>Sold By: <%= product.seller.name%></p>     
-                        <p><%= product.longdes %></p>
                       <a href="/products/<%= product._id%>"> <button>See Details </button> </a>
         
                     </div>
