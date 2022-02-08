@@ -11,9 +11,6 @@
         <link rel="stylesheet" href="/css/skeleton.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/index.css">
-
-
-        <script src="" async defer></script>
     </head>
     <body>
         <%- include('partials/nav.ejs') %>
@@ -27,7 +24,7 @@
                     <h1>High-end decor at accessible prices</h1>
                     <p>The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
                     </p>
-                    <a href="/"> <button>Shop Now </button> </a>
+                    <button class="scrollBtn"><a href="#shopAll">Shop Now</a> </button>
                 </div>
                 <div class="six columns">
                     <img src="/images/Hero image.png" alt="">
@@ -35,10 +32,10 @@
             </div>
         </div>
 
-        <div class="container shopAll">
+        <div class="container shopAll" id="shopAll">
             <h3>All Listings</h3>
             <div class="row categories">
-                <button>Category Filter</button>
+                <button class="secondaryBtn">Category Filter</button>
               
             </div>
             <div class="row products">
@@ -46,15 +43,13 @@
 
                 <%products.forEach(product => {%>
 
-                    <div class="columns four product-card">
+                    <div class="columns three product-card">
                         <div class="titleSection">
                         </div>
-                          <h6><%= product.title %></h6>
+                          <h5><%= product.title %></h5>
                         <img src="/images/Product image.png" alt="" class ="card-img">
-                        
                         <p>Sold By: <%= product.seller.name%></p>     
-                        <p><%= product.longdes %></p>
-                      <a href="/products/<%= product._id%>"> <button>See Details </button> </a>
+                      <a href="/products/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
         
                     </div>
         
