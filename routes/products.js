@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const  productsCtrl = require('../controllers/products');
 
+
 router.get('/products/:id',productsCtrl.prodId)
 router.get('/new', productsCtrl.newProd);
 router.post('/',productsCtrl.create);

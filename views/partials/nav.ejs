@@ -1,23 +1,26 @@
 
         <div class="container">
-            <nav class="row">
-                
-                <ul>
-                    <li><a href='/'> Home</a></li>
-
-                </ul>
-                
-
-                <!-- new html below -->
-                
-                
-          
-                <% if (user) { %>
-                    <li><a href="/users/<%=user._id%>">User Profile</a></li>
-
-                    <a href="/logout"><i class="material-icons left"></i>Log Out</a>
-                    <% } else { %>
-                        <a href="/auth/google">Login with Google</a>
-                        <% } %>
-            </nav>
+           
         </div>
+        <header>
+             <nav>
+
+            <img src="../images/favicon.png">
+
+                 <ul>
+                    <nav class="row">
+                
+                        <ul>
+                            <li><a href='/'> Home</a></li>
+                  
+                        <% if (user) { %>
+                            <li><a href="/users/<%=user._id%>">User Profile</a></li>
+        
+                          <li><a href="/logout"><i class="material-icons left"></i>Log Out</a>
+                            <% } else { %>
+                                <li><a href="/auth/google">Login with Google</a> </li>
+                                <% } %>
+                    </nav>
+                 </ul>
+             </nav>
+         </header>
