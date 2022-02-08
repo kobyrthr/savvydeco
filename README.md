@@ -59,6 +59,7 @@ Create a web application that allows users to sign up and sell their own furnitu
 - Over coming strange errors that were not related to our code (favicon?)
 - Resolve github conflict errors that really did not exist.
 - Devoting extra time to getting this project completed and working.
+- Getting edit button to show for only the respective seller. 
 
 # Words of Wisdom:
 
