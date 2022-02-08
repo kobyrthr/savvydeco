@@ -71,14 +71,6 @@ app.use('/', indexRoutes);
 app.use('/', userRoutes);
 
 
-//user profile
-// app.get('/users/:id', function (req,res){
-//   const user = userDb.findById(req.params.id)
-//   res.render("users/show", {user: user});
-//   console.log(user)
- 
-// })
-
 
 // favicon error 
 app.get('/favicon.ico', function(req,res){
