@@ -54,6 +54,7 @@ Create a web application that allows users to sign up and sell their own furnitu
 - User Profile only shows if user is signed in.
 - Edit/Delete features only show if user is logged in. If user is not logged in, it will require them too.
 - Contact button will allow users to email the seller.
+- Learning git/gitgub and becoming familiarized with common commands. 
 
 # Challenges:
 - Over coming strange errors that were not related to our code (favicon?)
