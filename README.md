@@ -71,7 +71,7 @@ Create a web application that allows users to sign up and sell their own furnitu
 
 # Proud Code:
 
-- Finally getting a new Product to tie with the person selling the product was so accomplishing.
+- Finally getting a new Product to tie with the seller of the product was so accomplishing.
 
 
 ![header](https://github.com/imanirak/savvydeco/blob/main/readmephotos/proudcode.png)
