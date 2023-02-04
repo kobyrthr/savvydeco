@@ -1,3 +1,11 @@
+# Startup project:
+
+install all dependencies
+
+` npm i `
+
+create env and provide database uri,  google oauth variables.
+
 
 # Savvy:
 
