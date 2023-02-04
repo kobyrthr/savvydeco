@@ -1,7 +1,8 @@
 const s3assets = require('@aws-cdk/aws-s3-assets');
-const cdk = require('@aws-cdk/core');
-const eleasticbeanstalk = require('@aws-cdk/easticbeanstalk');
 const iam = require('@aws-cdk/iam');
+const cdk = require('@aws-cdk/core');
+const elasticbeanstalk = require('@aws-cdk/easticbeanstalk');
+
 // const sqs = require('@aws-cdk/aws-sqs');
 
 class CdkSavvyStack extends cdk.Stack {
@@ -57,10 +58,39 @@ const instanceProfile = new iam.CfnInstanceProfile(this, myProfileName, {
   ]
 });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkSavvyQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+const optionSettingProperties = [
+  {
+      namespace: 'aws:autoscaling:launchconfiguration',
+      optionName: 'IamInstanceProfile',
+      value: myProfileName
+  },
+  {
+      namespace: 'aws:autoscaling:asg',
+      optionName: 'MinSize',
+      value: '1'
+  },
+  {
+      namespace: 'aws:autoscaling:asg',
+      optionName: 'MaxSize',
+      value: '1'
+  },
+  {
+      namespace: 'aws:ec2:instances',
+      optionName: 'InstanceTypes',
+      value: 't2.micro'
+  },
+];
+
+// Create an Elastic Beanstalk environment to run the application
+const elbEnv = new elasticbeanstalk.CfnEnvironment(this, 'Environment', {
+  environmentName: 'SavvyApp',
+  applicationName: app.applicationName || appName,
+  solutionStackName: '64bit Amazon Linux 2 v5.6.1 running Node.js 14',
+  optionSettings: optionSettingProperties,
+  versionLabel: appVersionProps.ref,
+});
+
+
   }
 }
 
