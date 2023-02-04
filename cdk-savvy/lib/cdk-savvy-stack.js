@@ -1,5 +1,7 @@
 const s3assets = require('@aws-cdk/aws-s3-assets');
 const cdk = require('@aws-cdk/core');
+const eleasticbeanstalk = require('@aws-cdk/easticbeanstalk');
+const iam = require('@aws-cdk/iam');
 // const sqs = require('@aws-cdk/aws-sqs');
 
 class CdkSavvyStack extends cdk.Stack {
@@ -25,9 +27,34 @@ class CdkSavvyStack extends cdk.Stack {
      * this stack, the file will get updated in S3.
      */
 
-    
+
 const webAppZipArchive = new s3assets.Asset(this, 'WebAppZip', {
   path: `${__dirname}/../app.zip`
+});
+
+
+// Create a ElasticBeanStalk app.
+const appName = 'SavvyApp';
+const app = new elasticbeanstalk.CfnApplication(this, 'Application', {
+    applicationName: appName,
+});
+
+
+// Create role and instance profile
+const myRole = new iam.Role(this, `${appName}-aws-elasticbeanstalk-ec2-role`, {
+  assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com'),
+});
+
+const managedPolicy = iam.ManagedPolicy.fromAwsManagedPolicyName('AWSElasticBeanstalkWebTier')
+myRole.addManagedPolicy(managedPolicy);
+
+const myProfileName = `${appName}-InstanceProfile`
+
+const instanceProfile = new iam.CfnInstanceProfile(this, myProfileName, {
+  instanceProfileName: myProfileName,
+  roles: [
+      myRole.roleName
+  ]
 });
 
     // example resource
