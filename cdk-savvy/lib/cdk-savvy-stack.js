@@ -1,3 +1,5 @@
+import s3assets = require('@aws-cdk/aws-s3-assets');
+
 const cdk = require('@aws-cdk/core');
 // const sqs = require('@aws-cdk/aws-sqs');
 
