@@ -27,10 +27,6 @@ jobs:
       - name: Install AWS CDK
         run: 'sudo npm install -g aws-cdk'
 
-      - name: Install Requirements 
-        run: 'pip3 install -r requirements.txt'
-        working-directory: cdk-savvy
-
       - name: Remove Old Files
         uses: JesseTG/rm@v1.0.3
         with:
