@@ -3,7 +3,6 @@ const iam = require('@aws-cdk/aws-iam');
 const cdk = require('@aws-cdk/core');
 const elasticbeanstalk = require('@aws-cdk/aws-elasticbeanstalk');
 
-// const sqs = require('@aws-cdk/aws-sqs');
 
 class CdkSavvyStack extends cdk.Stack {
   /**
