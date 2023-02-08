@@ -41,7 +41,7 @@ jobs:
          ./.github/scripts/build.sh
         shell: bash
 
-      - name: Deploy
+      - name: Deploy Changes
         run: | 
          chmod +x ./.github/scripts/build.sh
          ./.github/scripts/build.sh
