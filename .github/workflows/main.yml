@@ -17,7 +17,6 @@ jobs:
   aws_cdk:
     runs-on: ubuntu-latest
     steps:
-    
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure AWS Credentials
@@ -34,11 +33,18 @@ jobs:
         with:
         node-version: 14
 
-      - name: Install CDK
+      - name: Install CDK 
         run: | 
-         npm install -g aws-cdk \
+         npm install -g aws-cdk 
          npm i 
-         find . -name build.sh               
-        #  chmod +x ./.github/scripts/build.sh \
-        #  ./.github/scripts/build.sh
+         chmod +x ./.github/scripts/build.sh
+         ./.github/scripts/build.sh
         shell: bash
+
+      - name: Deploy
+        run: | 
+         chmod +x ./.github/scripts/build.sh
+         ./.github/scripts/build.sh
+        shell: bash
+
+
