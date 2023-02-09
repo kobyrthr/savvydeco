@@ -37,11 +37,11 @@ function checkFileType(file, cb){
 
 
 
-
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
         res.render("products/new",{user:req.user})
 };
+
 
 /// POST THE DETAILS OF NEW PRODUCT FORM TO HOME
 function create(req,res){
@@ -131,7 +131,6 @@ const prodUpdate = (req, res) => {
 
 
 // delete
-
 const prodDestroy = (req, res) => {
   Products.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
       if (err) res.send(err);

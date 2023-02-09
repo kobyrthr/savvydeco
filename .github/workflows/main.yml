@@ -2,28 +2,30 @@
 name: AWS CI/CD
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+    pull_request_target:
 permissions:
       id-token: write # This is required for aws oidc connection
       contents: read # This is required for actions/checkout
       pull-requests: write # This is required for gh bot to comment PR
 env:
+  ROLE_TO_ASSUME: ${{ secrets.ROLE_TO_ASSUME }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
-
 jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
   aws_cdk:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@master
+        secrets: inherit
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
           role-session-name: github-actions-role
@@ -41,7 +43,7 @@ jobs:
          ./.github/scripts/build.sh
         shell: bash
 
-      - name: Deploy Changes
+      - name: Deploy
         run: | 
          chmod +x ./.github/scripts/build.sh
          ./.github/scripts/build.sh
