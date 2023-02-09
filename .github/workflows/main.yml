@@ -11,8 +11,6 @@ env:
   ROLE_TO_ASSUME: ${{ secrets.ROLE_TO_ASSUME }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
 jobs:
-  if_merged:
-    if: github.event.pull_request.merged == true
   aws_cdk:
     runs-on: ubuntu-latest
     permissions:
