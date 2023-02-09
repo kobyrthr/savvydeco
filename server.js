@@ -39,7 +39,6 @@ const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
 
 	
-
 /* ====== Middleware  ====== */ 
 // //(app.use)
 

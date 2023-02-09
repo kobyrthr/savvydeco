@@ -1,0 +1,51 @@
+
+name: AWS CI/CD
+
+on:
+    pull_request_target:
+permissions:
+      id-token: write # This is required for aws oidc connection
+      contents: read # This is required for actions/checkout
+      pull-requests: write # This is required for gh bot to comment PR
+env:
+  ROLE_TO_ASSUME: ${{ secrets.ROLE_TO_ASSUME }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+jobs:
+  aws_cdk:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        secrets: inherit
+        with:
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: github-actions-role
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install CDK 
+        run: | 
+         npm install -g aws-cdk 
+         npm i 
+         chmod +x ./.github/scripts/build.sh
+         ./.github/scripts/build.sh
+        shell: bash
+
+      - name: Deploy
+        run: | 
+         chmod +x ./.github/scripts/build.sh
+         ./.github/scripts/build.sh
+        shell: bash
+
+
+# Error: User: arn:aws:iam::***:user/ghactions is not authorized to perform: sts:TagSession on resource: ***
