@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "cross-env NODE_ENV=development node server.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "prod": "cross-env NODE_ENV=production node server.js",
     "eject": "react-scripts eject"
   },
   "repository": {
@@ -42,5 +42,9 @@
   },
   "engines": {
     "node": "14.16.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
   }
 }
