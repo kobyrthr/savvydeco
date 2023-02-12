@@ -2,8 +2,6 @@
 const mongoose = require('mongoose');
  
 const imageSchema = new mongoose.Schema({
-    name: String,
-    desc: String,
     image:
     {
         data: Buffer,
@@ -11,4 +9,7 @@ const imageSchema = new mongoose.Schema({
     }
 });
  
-module.exports = ImageModel = mongoose.model('ImageModel', imageSchema)
+
+const Image = mongoose.model("Image", imageSchema);
+
+module.exports = Image

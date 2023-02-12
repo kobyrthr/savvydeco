@@ -1,7 +1,8 @@
 const Products = require('../models/products')
 const User = require('../models/user');
 const multer = require('multer')
-
+const fs = require('fs');
+const path = require('path');
 
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
@@ -17,8 +18,9 @@ function create(req,res){
       longdes:req.body.longdes,
       seller: req.user,
   })
-
+  
   console.log(req.user)
+  console.log(newProd)
   newProd.save()
 
   User.findById(newProd.seller).exec(function (err, foundUser) {

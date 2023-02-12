@@ -2,11 +2,11 @@ const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const Categories = require("../models/categories");
 const User = require('../models/user');
-const Image = require('../models/images');
+const ImageModel = require('../models/images');
 
 const productSchema = new mongoose.Schema({
     id:{type:String},
-    title: {type: String, required:true,},
+    title: {type: String},
  listedDate: {type:Date, default:Date.now} ,
     shortdes: {type:String}, 
     longdes: {type:String},

@@ -31,7 +31,7 @@ app.set('view engine', 'ejs');
 //connect mongoDB with mongoose
 require("./config/database");
 const userDb = require('./models/user');
-const ImageModel = require('./models/images');
+const Image = require('./models/images');
 //require passport
 require("./config/passport");
 
@@ -92,7 +92,7 @@ function checkFileType(file, cb){
       if(err) {
         console.log(err);
   }else {
-      const newImage = new ImageModel({
+      const newImage = new Image({
         name: req.body.name,
         image:{
           data:req.file.filename,
