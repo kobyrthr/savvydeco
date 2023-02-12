@@ -19,7 +19,7 @@ function create(req,res){
       title:req.body.title,
       shortdes:req.body.shortdes,
       longdes:req.body.longdes,
-      seller: req.user
+      seller: req.user,
   })
 
   console.log(req.user)

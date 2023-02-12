@@ -2,6 +2,7 @@ const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const Categories = require("../models/categories");
 const User = require('../models/user');
+const Image = require('../models/images');
 
 const productSchema = new mongoose.Schema({
     id:{type:String},
@@ -16,10 +17,10 @@ const productSchema = new mongoose.Schema({
 
         }
     ,
-    img:
+    image:
     {
-        data: Buffer,
-        contentType: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'image',
     }
 },
 {
