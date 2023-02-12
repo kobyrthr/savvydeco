@@ -53,7 +53,7 @@ app.use(methodOverride("_method"));
 
 // Set The Storage Engine
 const Storage = multer.diskStorage({
-  destination: 'uploads',
+  destination: './public/uploads',
   filename: function(req, file, cb){
     cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
@@ -99,6 +99,7 @@ function checkFileType(file, cb){
           contentType: 'image/jpg'
         }
       })
+      console.log(newImage);
       newImage.save()
       .then(() => res.send('Successfully uploaded')).catch(err=>console.log(err))
   }})

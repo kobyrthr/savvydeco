@@ -2,10 +2,6 @@ const Products = require('../models/products')
 const User = require('../models/user');
 const multer = require('multer')
 
-  
-
-
-
 
 // RENDER THE NEW PRODUCT FORM
 function newProd(req,res){
