@@ -83,7 +83,7 @@ function checkFileType(file, cb){
     fileFilter: function(req, file, cb){
       checkFileType(file, cb);
     }
-  }).single('testImage');
+  }).single('Image');
 
 
 

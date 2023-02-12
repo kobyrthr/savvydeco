@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <script src="" async defer></script>
-  <!--[if lt IE 7]>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/skeleton.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <script src="" async defer></script>
+        <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-  <%- include('../partials/nav.ejs') %>
-
-  <div class="container">
-    <div class="row prodFormBox">
-      <div class="prodDetails six columns">
-        <h3>Add a new product</h3>
-        <form id="new-form" enctype="multipart/form-data" action="/" method="POST">
-          <label for="title">Title</label>
-          <input type="text" name='title'>
-          <!-- <label for="category">Category</label>
+        <%- include('../partials/nav.ejs') %>
+        
+        <div class="container">
+            <div class="row prodFormBox">
+                <div class="prodDetails six columns">
+                        <h3>Add a new product</h3>
+                        <form id="new-form" action="/upload" enctype="multipart/form-data" method="POST">
+                            <label for="title">Title</label>
+                            <input type="text" name='title'>
+                            <!-- <label for="category">Category</label>
                             <select name ='category'><br> -->
-          <label for="shortdes">Location</label>
-          <input type="text" name='shortdes'>
-          <label for="longdes">Long Description</label>
-          <input type="text" name='longdes'>
-          <input type="file" class="form-control" name="file" id="files" multiple>
-          <button type="Submit">Submit</button>
-          <button>Cancel</button>
-        </form>
-      </div>
-    </div>
-  </div>
+                            <label for="shortdes">Location</label>
+                            <input type="text" name='shortdes'>
+                            <label for="longdes">Long Description</label>
+                            <input type="text" name='longdes'>
+                            <input type="file" class="form-control" name="Image" id="files" multiple>
+                            <button type="Submit">Submit</button>
+                            <button>Cancel</button>
+                        </form> 
+                    </div>
+                </div>
+            </div>
 
 
 
-</body>
-
+    </body>
 </html>

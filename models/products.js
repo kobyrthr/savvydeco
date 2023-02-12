@@ -2,7 +2,7 @@ const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 const Categories = require("../models/categories");
 const User = require('../models/user');
-const ImageModel = require('../models/images');
+const Image = require('../models/images');
 
 const productSchema = new mongoose.Schema({
     id:{type:String},
