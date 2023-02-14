@@ -1,5 +1,9 @@
 # Startup project:
 
+build docker image 
+
+` docker compose up `
+
 # Savvy:
 
 Create a web application that allows users to sign up and sell their own furniture. If you're just browsing you can also view and contact others about their own products for sale. With Savvy, we have a quick and easy sign-on using Google Auth. Once signed in a user can view all their previously posted products as well as continue to post new ones. If you make a mistake or want to adjust the price for one of your listed items, you will also have the ability to edit or delete a post.
