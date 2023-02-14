@@ -142,9 +142,17 @@ const PORT = process.env.PORT || 4000; // full caps signify a config variable
 /* ====== App Configuration  ====== */
 // app.set
 
-	
 /* ====== Server bind  ====== */
+
+// provide environment details
 // bind the application to the port via app.listen(number, optional function to do after bind)
+(process.env.NODE_ENV === 'production') ? process.env.GOOGLE_CALLBACK_URL : process.env.LOCAL_CALLBACK_URL 
+
+// update status console log to indicate current env
+let status;
+(process.env.NODE_ENV === 'production') ? status = "⚠️  PRODUCTION ⚠️ " : status = "dev 🤖" 
+
+
 app.listen(PORT, function () {
-	console.log(`i'm a little server live on port http://localhost:${PORT}`);
+   console.log(` *** currently in the ${status} environment *** `);
 });

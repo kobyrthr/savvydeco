@@ -1,11 +1,8 @@
 # Startup project:
 
-install all dependencies
+build docker image 
 
-` npm i `
-
-create env and provide database uri,  google oauth variables.
-
+` docker compose up `
 
 # Savvy:
 
