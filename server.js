@@ -46,19 +46,41 @@ const productRoutes = require('./routes/products');
 // //(app.use)
 
 app.use(express.static('public'))
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 
+// method override Middleware
 
+app.use(
+    session({
+      secret: "letsgoproject2!",
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+
+
+//Add passport middleware here
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use('/', productRoutes);
+app.use('/', indexRoutes);
+app.use('/', userRoutes);
+
+
+/* ====== IMAGE UPLOAD  ====== */ 
 // Set The Storage Engine
 const Storage = multer.diskStorage({
   destination: './public/uploads',
   filename: function(req, file, cb){
-    cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    cb(null,file.originalname);
   }
 });
-
+ 
 
 // Check File Type
 function checkFileType(file, cb){
@@ -87,7 +109,7 @@ function checkFileType(file, cb){
 
 
 
-  app.post('/upload', (req, res) => { 
+  app.post(['/upload', '/products/new'], (req, res) => { 
     upload(req, res, (err)=> {
       if(err) {
         console.log(err);
@@ -97,7 +119,8 @@ function checkFileType(file, cb){
         image:{
           data:req.file.filename,
           contentType: 'image/jpg'
-        }
+        },
+        filepath: req.file.path
       })
       console.log(newImage);
       newImage.save()
@@ -106,27 +129,6 @@ function checkFileType(file, cb){
   })
 
   
-// method override Middleware
-
-app.use(
-    session({
-      secret: "letsgoproject2!",
-      resave: false,
-      saveUninitialized: true,
-    })
-  );
-
-
-//Add passport middleware here
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-app.use('/', productRoutes);
-app.use('/', indexRoutes);
-app.use('/', userRoutes);
-
-
 
 // favicon error 
 app.get('/favicon.ico', function(req,res){
