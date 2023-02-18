@@ -11,30 +11,6 @@ function newProd(req, res) {
 };
 
 
-/// POST THE DETAILS OF NEW PRODUCT FORM TO HOME
-// function create(req, res) {
-
-//     let newProd = new Products({
-//         title: req.body.title,
-//         shortdes: req.body.shortdes,
-//         longdes: req.body.longdes,
-//         seller: req.user,
-//         image: null,
-//     })
-
-//     console.log("NEWPROD" + newProd)
-//     newProd.save()
-    
-//     User.findById(newProd.seller).exec(function (err, foundUser) {
-//         if (err) res.send(err);
-//         foundUser.products.push(newProd._id);
-//         foundUser.save();
-
-//     });
-//     res.redirect('/')
-// }
-
-
 /* ====== IMAGE UPLOAD  ====== */ 
 // Set The Storage Engine
 const Storage = multer.diskStorage({

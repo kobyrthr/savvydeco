@@ -49,8 +49,8 @@
         <div class="titleSection">
         </div>
         <h5><%= product.title %></h5>
-  
-        <img src="" alt="" class="card-img">
+        <%=product.image.name %>
+        <img src="<%=product.image.filepath %>" alt="" class="card-img">
 
         <a href="/products/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
 
