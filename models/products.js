@@ -4,6 +4,7 @@ const Categories = require("../models/categories");
 const User = require('../models/user');
 const Image = require('../models/images');
 
+
 const productSchema = new mongoose.Schema({
     id: { type: String },
     title: { type: String },
@@ -20,7 +21,7 @@ const productSchema = new mongoose.Schema({
     image:
     {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'image',
+        ref: 'Image',
     }
 },
     {
