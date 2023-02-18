@@ -46,7 +46,14 @@ function checkFileType(file, cb){
     }
   })
 
+
 function create(req, res) {
+  /**
+   * Uploads a new product to the database.           
+   * @param {Request} req - the request object           
+   * @param {Response} res - the response object           
+   * @returns None           
+   */
   upload.single('image')(req, res, function(err) {
     if (err) {
       console.log(err);
@@ -61,12 +68,19 @@ function create(req, res) {
       image: null
     });
 
+
+
     newProd.save(function(err, prod) {
       if (err) {
         console.log(err);
         return res.status(500).send({ message: 'Error creating product.' });
       }
 
+      /**
+       * Creates a new Image object from the given file.       
+       * @param {File} file - the file to create the Image object from.       
+       * @returns {Image} - the new Image object.       
+       */
       if (req.file) {
         let newImage = new Image({
           name: req.file.originalname,
@@ -77,18 +91,35 @@ function create(req, res) {
           filepath: req.file.path
         });
 
+        /**
+         * Saves the image to the server.           
+         * @param {Error} err - the error that occurred during the save.           
+         * @param {Image} image - the image that was saved.           
+         * @returns None           
+         */
         newImage.save(function(err, image) {
           if (err) {
             console.log(err);
             return res.status(500).send({ message: 'Error creating image.' });
           }
 
+          /**
+           * Updates the product with the image ID.           
+           * @param {string} id - the id of the product to update           
+           * @param {string} imageId - the id of the image to update to           
+           * @returns None           
+           */
           Products.findByIdAndUpdate(newProd._id, { image: image._id }, function(err) {
             if (err) {
               console.log(err);
               return res.status(500).send({ message: 'Error updating product with image.' });
             }
 
+            /**
+             * Finds a product by its ID and populates its image.           
+             * @param {string} id - the ID of the product to find.           
+             * @returns None           
+             */
             Products.findById(newProd._id).populate('image').exec(function(err, product) {
               if (err) {
                 console.log(err);
@@ -100,6 +131,10 @@ function create(req, res) {
           });
         });
       } else {
+        /**
+         * We should create an error page 404 try again,
+         *  in case of failures to redirect too.
+         */
         res.redirect('/');
       }
     });
