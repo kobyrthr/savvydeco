@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Icon, Flex } from "@chakra-ui/react"
-import {HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon} from '@chakra-ui/icons'
 
 export default function Navbar() {
   return (

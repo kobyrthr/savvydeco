@@ -1,8 +1,12 @@
-import React from 'react'
+import {React,useEffect} from 'react'
 
 const Home = () => {
+
+  useEffect(
+    ()=>{console.log('Hello')},[]
+  )
   return (
-    <div>Home</div>
+    <div color='yellow'>Home</div>
   )
 }
 
