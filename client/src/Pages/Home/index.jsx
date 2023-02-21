@@ -1,4 +1,5 @@
 import {React,useEffect} from 'react'
+import Navbar from '../../components/Navbar'
 
 const Home = () => {
 
@@ -6,7 +7,10 @@ const Home = () => {
     ()=>{console.log('Hello')},[]
   )
   return (
-    <div color='yellow'>Home</div>
+    <>
+    <Navbar></Navbar>
+    <div>Home</div>
+    </>
   )
 }
 
