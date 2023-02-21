@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Savvy</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/skeleton.css">
-        <link rel="stylesheet" href="/css/style.css">
-        
-        <script src="" async defer></script>
-    </head>
-    <body>
-        <%- include('../partials/nav.ejs') %>
-        
-        
-        
-        <div class="container shopAll">
-            <h3>Product ID page</h3>
-            <div class="row products">
-                
-                <img src="/images/Product image.png" alt="" class ="card-img columns eight">
-                <div class="columns four product-card">
-                    <div class="titleSection">
-                        <p><%= seller.name %></p>
-                    </div>
-                    <h5><%= product.title %></h3>
-                    <p><%= product.shortdes %></p>
-                    <p><%= product.longdes %></p>
 
-                    <a href="mailto:<%=seller.email%>"><button>Contact</button></a>
-                    <% if (user) { %>
-                      
-                    <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
-                    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete" />
-                    </form>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Savvy</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-                 
-                    </form>  
-                        <% } else { %>
-                            <a href="/auth/google"><button>Login to post</button></a>
-                            <% } %>
-                            
-                </div>
-      
+  <script src="" async defer></script>
+</head>
 
-             
-            </div>
+<body>
+  <%- include('../partials/nav.ejs') %>
+
+
+
+  <div class="container shopAll">
+    <h3>Product ID page</h3>
+    <div class="row products">
+
+      <img src="/<%=product.image.name %>" alt="" class="card-img columns eight">
+      <div class="columns four product-card">
+        <div class="titleSection">
+          <p><%= seller.name %></p>
         </div>
+        <h5><%= product.title %></h3>
+          <p><%= product.shortdes %></p>
+          <p><%= product.longdes %></p>
+
+          <a href="mailto:<%=seller.email%>"><button>Contact</button></a>
+          <% if (user) { %>
+
+          <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
+          <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete" />
+          </form>
 
 
-    </body>
+          </form>
+          <% } else { %>
+          <a href="/auth/google"><button>Login to post</button></a>
+          <% } %>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+</body>
+
 </html>

@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Savvy</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/skeleton.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/index.css">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Savvy</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/index.css">
 
 
-        <script src="" async defer></script>
-    </head>
-    <body>
-        <%- include('partials/nav.ejs') %>
-        <div class="container">
-          
-        </div>
+  <script src="" async defer></script>
+</head>
 
-            <div class="row products">
-             
-                <%products.forEach(product => {%>
+<body>
+  <%- include('partials/nav.ejs') %>
+  <div class="container">
 
-                    <div class="columns four product-card">
-                        <div class="titleSection">
-                        </div>
-                          <h6><%= product.title %></h6>
-                        <img src="/images/Product image.png" alt="" class ="card-img">
-                        
-                        <p>Sold By: <%= product.seller.name%></p>     
-                        <p><%= product.longdes %></p>
-                      <a href="/products/<%= product._id%>"> <button>See Details </button> </a>
-        
-                    </div>
-        
-                    <% }) %>
+  </div>
 
-            </div>
-        </div>
+  <div class="row products">
+
+    <%products.forEach(product => {%>
+
+    <div class="columns four product-card">
+      <div class="titleSection">
+      </div>
+      <h6><%= product.title %></h6>
+      <img src="./<%=product.image.filepath %>" alt="" class="card-img">
+
+      <p>Sold By: <%= product.seller.name%></p>
+      <p><%= product.longdes %></p>
+      <a href="/products/<%= product._id%>"> <button>See Details </button> </a>
+
+    </div>
+
+    <% }) %>
+
+  </div>
+  </div>
 
 
-    </body>
+</body>
+
 </html>

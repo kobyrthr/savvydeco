@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Savvy</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/skeleton.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/index.css">
-    </head>
-    <body>
-        <%- include('partials/nav.ejs') %>
-        <div class="container">
-          
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Savvy</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+  <%- include('partials/nav.ejs') %>
+  <div class="container">
+
+  </div>
+
+  <div class="container hero">
+    <div class="row">
+      <div class="six columns">
+        <h1>High-end decor at accessible prices</h1>
+        <p>The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
+        </p>
+        <button class="scrollBtn"><a href="#shopAll" class="scrlbtn">Shop Now</a> </button>
+      </div>
+      <div class="six columns">
+        <img src="/images/Hero image.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="container shopAll" id="shopAll">
+    <h3>All Listings</h3>
+    <div class="row categories">
+      <button class="secondaryBtn">Category Filter</button>
+
+    </div>
+    <div class="row products">
+
+
+      <%products.forEach(product => {%>
+
+      <div class="columns three product-card">
+        <div class="titleSection">
         </div>
+        <h5><%= product.title %></h5>
 
-        <div class="container hero">
-            <div class="row">
-                <div class="six columns">
-                    <h1>High-end decor at accessible prices</h1>
-                    <p>The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
-                    </p>
-                    <button class="scrollBtn"><a href="#shopAll" class="scrlbtn">Shop Now</a> </button>
-                </div>
-                <div class="six columns">
-                    <img src="/images/Hero image.png" alt="">
-                </div>
-            </div>
-        </div>
+        <img src="/uploads/<%=product.image.name %>" alt="" class="card-img">
 
-        <div class="container shopAll" id="shopAll">
-            <h3>All Listings</h3>
-            <div class="row categories">
-                <button class="secondaryBtn">Category Filter</button>
-              
-            </div>
-            <div class="row products">
-             
+        <a href="/products/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
 
-                <%products.forEach(product => {%>
+      </div>
 
-                    <div class="columns three product-card">
-                        <div class="titleSection">
-                        </div>
-                          <h5><%= product.title %></h5>
-                        <img src="/images/Product image.png" alt="" class ="card-img">
-                        <p>Sold By: <%= product.seller.name%></p>     
-                      <a href="/products/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
-        
-                    </div>
-        
-                    <% }) %>
+      <% }) %>
 
-            </div>
-        </div>
+    </div>
+  </div>
 
 
-    </body>
+</body>
+
 </html>

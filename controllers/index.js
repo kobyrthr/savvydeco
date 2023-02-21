@@ -1,21 +1,24 @@
 const Products = require('../models/products');
 const passport = require('passport');
+const { response } = require('express');
 
-    function index(req,res){
-        Products.find({}).populate('seller').exec(
-            
-            function(err,products){
-                if (err){
-                }
-                else {
+function index(req, res) {
+    Products.find({}).populate('seller').populate('image').exec(
 
-                    res.render('index',{
-                        products,
-                        user: req.user
-                        })
-                }
-            })    
+        function (err, products) {
+            if (err) {
+            }
+            else {
+                console.log(products)
+                res.render('index', {
+                    products,
+                    user: req.user
+                })
+
+            }
+        })
 }
+
 
 module.exports = {
     index

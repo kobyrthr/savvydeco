@@ -10,6 +10,8 @@ const methodOverride = require("method-override");
 require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const bodyParser = require('body-parser')
+const multer = require('multer');
+const path = require('path');
 
 
 /* ====== Internal Modules  ====== */
@@ -43,10 +45,9 @@ const productRoutes = require('./routes/products');
 // //(app.use)
 
 app.use(express.static('public'))
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-
-
 
 
 // method override Middleware
@@ -68,7 +69,6 @@ app.use(passport.session());
 app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
-
 
 
 // favicon error 
