@@ -5,13 +5,10 @@ const User = require('../models/user');
 
 passport.use(
     new GoogleStrategy({
-
+            
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-            callbackURL: (process.env.NODE_ENV === 'production') ? 
-            process.env.GOOGLE_CALLBACK_URL : 
-            process.env.LOCAL_CALLBACK_URL
-
+            callbackURL: (process.env.NODE_ENV === 'production') ? process.env.GOOGLE_CALLBACK : process.env.LOCAL_CALLBACK
         },
         function(accessToken, refreshToken, profile, cb) {
             //a user has logged in with oauth
