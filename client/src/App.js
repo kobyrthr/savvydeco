@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route exact path='/' element ={<Home/>}/>
         <Route exact path='/profile' element ={<Profile/>}/>
-        {/* <Route exact path='/' element ={<Home/>}/> */}
       </Routes>
   </BrowserRouter>
   </>
