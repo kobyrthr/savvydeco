@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <%- include('partials/nav.ejs') %>
+
   <div class="container">
 
   </div>
@@ -23,23 +23,13 @@
 
   <div class="row products">
 
-
-    <%products.forEach(product => {%>
-
     <h1>Product Added to Cart</h1>
-    <ul>
-      <li><strong>Product:</strong> <%= product.name %></li>
-      <li><strong>Price:</strong> <%= product.price %></li>
-      <li><strong>Quantity:</strong> <%= quantity %></li>
-    </ul>
-    <h2>Order Summary</h2>
-    <ul>
-      <li><strong>Total Cost:</strong> <%= totalCost %></li>
-      <li><strong>Shipping:</strong> <%= shipping %></li>
-      <li><strong>Order History:</strong> <%= orderHistory %></li>
-    </ul>
-
-    <% }) %>
+    <% cart.items.forEach(function(item) { %>
+    <div>
+      <h6><%= item.product.title %></h6>
+      <p><%= item.quantity %></p>
+    </div>
+    <% }); %>
 
   </div>
   </div>

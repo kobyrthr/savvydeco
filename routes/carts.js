@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const cartCtrl = require('../controllers/shoppingCart.js');
+const cartCtrl = require('../controllers/ShoppingCart.js');
 
 
 router.post('/add-to-cart/:productId', cartCtrl.addToCart);
