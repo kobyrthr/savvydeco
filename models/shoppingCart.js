@@ -4,9 +4,9 @@ const products = require('./products');
 
 
 
-const cartItemSchema = new Schema({
+const cartItemSchema = new mongoose.Schema({
   product: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'products',
     required: true,
   },
@@ -18,9 +18,9 @@ const cartItemSchema = new Schema({
 });
 
 
-const shoppingCartSchema = new Schema({
+const shoppingCartSchema = new mongoose.Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true,
   },

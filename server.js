@@ -39,6 +39,7 @@ require("./config/passport");
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
+const cartRoutes = require('./routes/carts');
 
 	
 /* ====== Middleware  ====== */ 
@@ -69,7 +70,7 @@ app.use(passport.session());
 app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
-
+app.use('/', cartRoutes);
 
 // favicon error 
 app.get('/favicon.ico', function(req,res){
