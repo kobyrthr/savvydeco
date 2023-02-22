@@ -8,29 +8,44 @@ const addToCart = async (req, res) => {
   
     // need to provide backend with productId
     // create an add to cart button passing product._id
-    // <a href="/add-to-cart/<%= product._id %>">Add to cart</a>
+    // POST form to /cart 
+    // example on prodId for react transition
     
     try {
         const productId = req.body.productId;
         const quantity = req.body.quantity;
-        //const userId = req.user;
         const userId = req.user;  
 
-        console.log("REQUSER"+req.user._id)
 
+        /**
+         * Finds a product by its ID.       
+         * @param {string} productId - the ID of the product to find       
+         * @returns {Promise<Product>} - the product with the given ID       
+         */
         const product = await Products.findById(productId);
-        console.log("PRODUCT" + product)
+
         if(!product){
             return res.status(404).json({message:"Product not found"});
         }
 
 
+        /**
+         * Finds a user by their ID and returns it.       
+         * @param {string} userId - the ID of the user to find.       
+         * @returns {Promise<User>} - the user with the given ID.       
+         */
         const user = await User.findById(userId);
-        console.log("USER"+user)
+
         if(!user){
             return res.status(404).json({message:"User not found"});
         }
 
+
+        /**
+         * Finds the shopping cart for the user and populates the items with the product data.       
+         * @param {string} userId - the id of the user whose cart is being retrieved.       
+         * @returns {Promise<ShoppingCart>} - the shopping cart for the user.       
+         */
         let cart = await ShoppingCart.findOne({ user: userId }).populate('items.product');
         
         if(!cart){
@@ -39,16 +54,25 @@ const addToCart = async (req, res) => {
                 items: [],
             });
         }
-        console.log("CART"+cart.items)
+
        
+        /**
+         * Adds the product to the cart.       
+         * @param {string} productId - the id of the product to add to the cart.       
+         * @param {number} quantity - the quantity of the product to add to the cart.       
+         * @param {Request} req - the request object.       
+         * @param {Response} res - the response object.       
+         * @returns None       
+         */
         const existingCartItem = cart.items.find(item => item.product.toString() === productId);
         
         if(existingCartItem){
             existingCartItem.quantity += quantity;
+
         } else {
             cart.items.push({product: productId, quantity});
         }
-        console.log("ExistingCART"+ existingCartItem)
+        
 
         await cart.save();
         res.render('carts/index',{cart});

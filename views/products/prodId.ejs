@@ -35,7 +35,7 @@
 
           <a href="mailto:<%=seller.email%>"><button>Contact</button></a>
           <% if (user) { %>
-          <form action="/add-to-cart/<%=product._id%>" method="POST">
+          <form action="/cart/" method="POST">
             <input type="hidden" name="productId" value="<%= product._id %>">
             <input type="number" name="quantity" value="1">
             <button type="submit">Add to Cart</button>
