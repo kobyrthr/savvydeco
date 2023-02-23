@@ -13,11 +13,9 @@ const addToCart = async (req, res) => {
     // create an add to cart button passing product._id
     // POST form to /cart 
     // example on prodId for react transition
-    
     try {
         const productId = req.body.productId;
-        const quantity = req.body.quantity;
-        //const userId = req.session.user;  
+         //const price = req.body.price;
         const userId = localStorage.getItem('user');
 
           if (!localStorage.getItem('user')) {
@@ -57,13 +55,18 @@ const addToCart = async (req, res) => {
        console.log(cart)
 
        //below this line needs to be tested/changed
-        const existingCartItem = cart.items.find(item => item.product.toString() === productId);
-        console.log(existingCartItem)
+        const existingCartItem = cart.items.find(item => item.product && item.product.toString() === productId);
+        console.log("EC"+existingCartItem)
+
         if(existingCartItem){
-            existingCartItem.quantity += quantity;
+            // add price login here
 
         } else {
-            cart.items.push({product: productId, quantity});
+            cart.items.push({
+                productId: product._id,
+                title: product.title,
+              //  price: product.price
+            });
         }
         
         localStorage.setItem('cart', JSON.stringify(cart));
