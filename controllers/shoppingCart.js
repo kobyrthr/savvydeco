@@ -1,7 +1,10 @@
 const Products = require('../models/products');
 const User = require('../models/user');
 const ShoppingCart = require('../models/ShoppingCart');
-const mongoose = require('mongoose');
+const LocalStorage = require('node-localstorage').LocalStorage;
+const localStorage = new LocalStorage('./scratch');
+
+
 // add a product to the users shopping cart
 
 const addToCart = async (req, res) => {
@@ -14,58 +17,48 @@ const addToCart = async (req, res) => {
     try {
         const productId = req.body.productId;
         const quantity = req.body.quantity;
-        const userId = req.user;  
+        //const userId = req.session.user;  
+        const userId = localStorage.getItem('user');
 
+          if (!localStorage.getItem('user')) {
+            const guestUser = new User({
+                name: 'Guest',
+                email: 'guest@example.com',
+              });
+              await guestUser.save();
+              localStorage.setItem('user', guestUser._id);
+          }
 
-        /**
-         * Finds a product by its ID.       
-         * @param {string} productId - the ID of the product to find       
-         * @returns {Promise<Product>} - the product with the given ID       
-         */
+        
         const product = await Products.findById(productId);
 
         if(!product){
             return res.status(404).json({message:"Product not found"});
         }
+        console.log("PRODUCT"+product)
 
+        // const user = await User.findById(userId);
 
-        /**
-         * Finds a user by their ID and returns it.       
-         * @param {string} userId - the ID of the user to find.       
-         * @returns {Promise<User>} - the user with the given ID.       
-         */
-        const user = await User.findById(userId);
-
-        if(!user){
+        if (!userId) {
             return res.status(404).json({message:"User not found"});
         }
-
-
-        /**
-         * Finds the shopping cart for the user and populates the items with the product data.       
-         * @param {string} userId - the id of the user whose cart is being retrieved.       
-         * @returns {Promise<ShoppingCart>} - the shopping cart for the user.       
-         */
-        let cart = await ShoppingCart.findOne({ user: userId }).populate('items.product');
         
-        if(!cart){
-            cart = new ShoppingCart({
+
+        //let cart = await ShoppingCart.findOne({ user: userId }).populate('items.product');
+        //req.session.cart = cart;
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        if (!cart) {
+            cart = {
                 user: userId,
                 items: [],
-            });
+            };
         }
 
-       
-        /**
-         * Adds the product to the cart.       
-         * @param {string} productId - the id of the product to add to the cart.       
-         * @param {number} quantity - the quantity of the product to add to the cart.       
-         * @param {Request} req - the request object.       
-         * @param {Response} res - the response object.       
-         * @returns None       
-         */
+       console.log(cart)
+
+       //below this line needs to be tested/changed
         const existingCartItem = cart.items.find(item => item.product.toString() === productId);
-        
+        console.log(existingCartItem)
         if(existingCartItem){
             existingCartItem.quantity += quantity;
 
@@ -73,8 +66,8 @@ const addToCart = async (req, res) => {
             cart.items.push({product: productId, quantity});
         }
         
-
-        await cart.save();
+        localStorage.setItem('cart', JSON.stringify(cart));
+        //await cart.save();
         res.render('carts/index',{cart});
     }
     catch(err){

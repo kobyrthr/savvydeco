@@ -26,10 +26,12 @@
     <h1>Product Added to Cart</h1>
     <% cart.items.forEach(function(item) { %>
     <div>
-      <h6><%= item.product.title %></h6>
+      <h6><%= item.product %></h6>
       <p><%= item.quantity %></p>
     </div>
     <% }); %>
+
+
 
   </div>
   </div>
