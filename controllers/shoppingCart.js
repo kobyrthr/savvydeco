@@ -15,9 +15,9 @@ const addToCart = async (req, res) => {
     // example on prodId for react transition
     try {
         const productId = req.body.productId;
-         //const price = req.body.price;
+        const price = req.body.price;
         const userId = localStorage.getItem('user');
-
+       
           if (!localStorage.getItem('user')) {
             const guestUser = new User({
                 name: 'Guest',
@@ -55,22 +55,26 @@ const addToCart = async (req, res) => {
        console.log(cart)
 
        //below this line needs to be tested/changed
-        const existingCartItem = cart.items.find(item => item.product && item.product.toString() === productId);
-        console.log("EC"+existingCartItem)
+        const existingCartItemIndex = cart.items.findIndex(item => item.productId === productId);
 
-        if(existingCartItem){
-            // add price login here
+        if(existingCartItemIndex !== -1){
+            // add price func here
+            
 
         } else {
+            console.log("EC INSIDE ELSE"+existingCartItemIndex)
             cart.items.push({
                 productId: product._id,
                 title: product.title,
-              //  price: product.price
+                price: product.price
             });
         }
         
         localStorage.setItem('cart', JSON.stringify(cart));
-        //await cart.save();
+       
+
+        
+
         res.render('carts/index',{cart});
     }
     catch(err){
