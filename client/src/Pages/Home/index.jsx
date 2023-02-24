@@ -1,23 +1,29 @@
 import { chakra,Container,Box, Flex, Text, Heading,Button, Image, Grid, GridItem, Card, CardHeader, CardBody, CardFooter, Stack, Divider,ButtonGroup } from '@chakra-ui/react'
-import {React,useEffect} from 'react'
+import {React,useEffect,useState} from 'react'
 import Navbar from '../../components/Navbar'
-
+import ProductCard from '../../components/ProductCard'
 const Home = () => {
 
-  const products = [
-    {productName:'Aricle Couch', seller:'Karina Garces', }
-  ]
+  const [products,setProducts] = useState([])
+    // {name:'Aricle Couch', seller:'Karina Garces', }
+    // { name, image, price, rating, numReviews }
 
-  useEffect(
-    ()=>{console.log('Hello')},[]
-  )
+  useEffect(()=>{
+    const getData = async ()=>{
+      const data = await fetch('https://fakestoreapi.com/products/')
+      setProducts(await data.json())
+    }
+    getData()
+  },[])
+
+  useEffect(()=>{console.log(products)},[products])
   return (
     <>
     {/* NAVBAR */}
     <Navbar></Navbar>
 
     {/* HERO SECTION */}
-    <Flex bg={'#FFF8EC'} h='500px' color='black' w="100vw">
+    {/* <Flex bg={'#FFF8EC'} h='500px' color='black' w="100vw">
       <Box>
        <Heading>High-end decor at accessible prices</Heading>
        <Text>The pain itself is love, the main storage system, It is not until the hunger of any one can pull the boxes.</Text> 
@@ -26,110 +32,51 @@ const Home = () => {
       <Box>
         <Image src='images/Hero image.png' boxSize='sm'></Image>
       </Box>
+    </Flex> */}
+
+    <Flex>
+      <Box w={{ base: "100%", md: "50%" }}>
+        <Heading as="h1" size="xl" mb="4">
+          Welcome to our website
+        </Heading>
+        <Text fontSize="xl" mb="6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Text>
+        <Button colorScheme="blue" size="lg">
+          Learn more
+        </Button>
+      </Box>
+      <Box w={{ base: "100%", md: "50%" }}>
+        <Image
+          src='images/Hero image.png' boxSize='sm'
+          alt="hero image"
+          objectFit="cover"
+          h="100%"
+          w="100%"
+        />
+      </Box>
     </Flex>
 
     {/* PRODUCT GRID */}
 
+    {/* PRODUCT API CALL
+    
+    category: "men's clothing"
+description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
+id: 1
+image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+price: 109.95
+rating: {rate: 3.9, count: 120}
+title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
+    
+     */}
+
     <Grid display={'flex'} justifyContent={'space-evenly'}>
-      <GridItem>
-        <Card maxW='sm'>
-          <CardBody>
-            <Image
-              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-              alt='Green double couch with wooden legs'
-              borderRadius='lg'
-            />
-            <Stack mt='6' spacing='3'>
-              <Heading size='md'>Living room Sofa</Heading>
-              <Text>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces, earthy toned spaces and for people who love a chic design with a
-                sprinkle of vintage design.
-              </Text>
-              <Text color='blue.600' fontSize='2xl'>
-                $450
-              </Text>
-            </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter>
-            <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-                Buy now
-              </Button>
-              <Button variant='ghost' colorScheme='blue'>
-                Add to cart
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
-      </GridItem>
-      <GridItem>
-        <Card maxW='sm'>
-          <CardBody>
-            <Image
-              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-              alt='Green double couch with wooden legs'
-              borderRadius='lg'
-            />
-            <Stack mt='6' spacing='3'>
-              <Heading size='md'>Living room Sofa</Heading>
-              <Text>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces, earthy toned spaces and for people who love a chic design with a
-                sprinkle of vintage design.
-              </Text>
-              <Text color='blue.600' fontSize='2xl'>
-                $450
-              </Text>
-            </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter>
-            <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-                Buy now
-              </Button>
-              <Button variant='ghost' colorScheme='blue'>
-                Add to cart
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
-      </GridItem>
-      <GridItem>
-        <Card maxW='sm'>
-          <CardBody>
-            <Image
-              src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-              alt='Green double couch with wooden legs'
-              borderRadius='lg'
-            />
-            <Stack mt='6' spacing='3'>
-              <Heading size='md'>Living room Sofa</Heading>
-              <Text>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces, earthy toned spaces and for people who love a chic design with a
-                sprinkle of vintage design.
-              </Text>
-              <Text color='blue.600' fontSize='2xl'>
-                $450
-              </Text>
-            </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter>
-            <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-                Buy now
-              </Button>
-              <Button variant='ghost' colorScheme='blue'>
-                Add to cart
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
-      </GridItem>
+      {products.map((product,index)=>{
+        return <ProductCard key={index} product={product} ></ProductCard>
+      })}
+
     </Grid>
 
 

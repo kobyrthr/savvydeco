@@ -1,16 +1,76 @@
-import React from 'react'
-import { Box, Icon, Flex, List, ListItem,UnorderedList } from "@chakra-ui/react"
+import { useState } from "react";
+import {
+  Box,
+  Flex,
+  Spacer,
+  Image,
+  Button,
+  IconButton,
+  Drawer,
+  Link,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  useDisclosure,
+  
+} from "@chakra-ui/react";
 
-export default function Navbar() {
+import { CloseIcon,HamburgerIcon } from '@chakra-ui/icons'
+
+
+const NavBar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isMobile, setIsMobile] = useState(false);
+
+  const toggleMobile = () => {
+    setIsMobile(!isMobile);
+  };
+
   return (
-    <>
-      <Flex justifyContent='space-between'w='100%'>
-          <img src="images/favicon.png" alt=""/>
-        <UnorderedList display={'flex'} styleType={'none'} justifyItems={'space-around'}>  
-          <ListItem>Home</ListItem>
-          <ListItem>Log in with Google</ListItem>
-        </UnorderedList>    
+    <Box bg="gray.100" px="4">
+      <Flex alignItems="center" py="3">
+        <Box>
+          <Link to="/">
+            <Image src="images/favicon.png" alt="Logo" boxSize="40px" objectFit="contain" />
+          </Link>
+        </Box>
+        <Spacer />
+        {isMobile ? (
+          <>
+            <IconButton
+              aria-label="Toggle navigation"
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              onClick={toggleMobile}
+            />
+            <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Navigation</DrawerHeader>
+                <DrawerBody>
+                  <Box>
+                    <Link to="/">Home</Link>
+                    <Button colorScheme="blue" variant="solid">
+                      Log In with Google
+                    </Button>
+                  </Box>
+                </DrawerBody>
+              </DrawerContent>
+            </Drawer>
+          </>
+        ) : (
+          <Box>
+            <Link to="/">Home</Link>
+            <Button ml="4" colorScheme="blue" variant="solid">
+              Log In with Google
+            </Button>
+          </Box>
+        )}
       </Flex>
-    </>
-  )
-}
+    </Box>
+  );
+};
+
+export default NavBar;
