@@ -8,7 +8,6 @@ const localStorage = new LocalStorage('./scratch');
 // add a product to the users shopping cart
 
 const addToCart = async (req, res) => {
-  
     // need to provide backend with productId
     // create an add to cart button passing product._id
     // POST form to /cart 
@@ -33,17 +32,13 @@ const addToCart = async (req, res) => {
         if(!product){
             return res.status(404).json({message:"Product not found"});
         }
-        console.log("PRODUCT"+product)
 
-        // const user = await User.findById(userId);
 
         if (!userId) {
             return res.status(404).json({message:"User not found"});
         }
         
 
-        //let cart = await ShoppingCart.findOne({ user: userId }).populate('items.product');
-        //req.session.cart = cart;
         let cart = JSON.parse(localStorage.getItem('cart'));
         if (!cart) {
             cart = {
@@ -52,9 +47,7 @@ const addToCart = async (req, res) => {
             };
         }
 
-       console.log(cart)
 
-       //below this line needs to be tested/changed
         const existingCartItemIndex = cart.items.findIndex(item => item.productId === productId);
 
         if(existingCartItemIndex !== -1){
