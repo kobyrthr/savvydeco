@@ -22,18 +22,6 @@ const Home = () => {
     {/* NAVBAR */}
     <Navbar></Navbar>
 
-    {/* HERO SECTION */}
-    {/* <Flex bg={'#FFF8EC'} h='500px' color='black' w="100vw">
-      <Box>
-       <Heading>High-end decor at accessible prices</Heading>
-       <Text>The pain itself is love, the main storage system, It is not until the hunger of any one can pull the boxes.</Text> 
-       <Button bg='black' color='white'>Shop Now</Button>
-      </Box>
-      <Box>
-        <Image src='images/Hero image.png' boxSize='sm'></Image>
-      </Box>
-    </Flex> */}
-
     <Flex>
       <Box w={{ base: "100%", md: "50%" }}>
         <Heading as="h1" size="xl" mb="4">
@@ -60,21 +48,14 @@ const Home = () => {
 
     {/* PRODUCT GRID */}
 
-    {/* PRODUCT API CALL
-    
-    category: "men's clothing"
-description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"
-id: 1
-image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-price: 109.95
-rating: {rate: 3.9, count: 120}
-title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-    
-     */}
+    <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
 
-    <Grid display={'flex'} justifyContent={'space-evenly'}>
+      gap={6}
+      px={{ base: "4", md: "6", lg: "8" }}>
       {products.map((product,index)=>{
-        return <ProductCard key={index} product={product} ></ProductCard>
+        return <GridItem>
+                <ProductCard product={product} key={index}></ProductCard>
+              </GridItem>
       })}
 
     </Grid>

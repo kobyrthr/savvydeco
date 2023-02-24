@@ -9,12 +9,12 @@ const ProductCard = ({ product }) => {
     <Card maxW='sm'>
           <CardBody>
             <Image
-              src={product.image}
+              src={product.image} boxSize='sm'objectFit={'contain'}
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md'>{product.title}</Heading>
-              <Text>
-                ${product.description}
+              <Heading size='md' maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">{product.title}</Heading>
+              <Text maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
+                {product.description}
               </Text>
               <Text color='blue.600' fontSize='2xl'>
                 ${product.price}
