@@ -9,10 +9,11 @@ passport.use(
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_SECRET,
             callbackURL: (process.env.NODE_ENV === 'production') ? process.env.GOOGLE_CALLBACK : process.env.LOCAL_CALLBACK
+
         },
         function(accessToken, refreshToken, profile, cb) {
             //a user has logged in with oauth
-            console.log(profile)
+            //console.log(profile)
             User.findOne({ googleId: profile.id }, (err, user) => {
                 if (err) return cb(err);
                 if (user) {
@@ -22,7 +23,6 @@ passport.use(
                         name: profile.displayName,
                         email: profile.emails[0].value,
                         googleId: profile.id,
-                        // streipAccountId: acct_1MccSdQ8rIZ1koDA
                     })
                     newUser.save(function(err) {
                         if (err) return cb(err);

@@ -31,7 +31,6 @@ app.set('view engine', 'ejs');
 //connect mongoDB with mongoose
 require("./config/database");
 const userDb = require('./models/user');
-const Image = require('./models/images');
 //require passport
 require("./config/passport");
 
@@ -40,6 +39,7 @@ require("./config/passport");
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
+const cartRoutes = require('./routes/carts');
 
 	
 /* ====== Middleware  ====== */ 
@@ -70,65 +70,7 @@ app.use(passport.session());
 app.use('/', productRoutes);
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
-
-
-/* ====== IMAGE UPLOAD  ====== */ 
-// Set The Storage Engine
-const Storage = multer.diskStorage({
-  destination: './public/uploads',
-  filename: function(req, file, cb){
-    cb(null,file.originalname);
-  }
-});
- 
-
-// Check File Type
-function checkFileType(file, cb){
-  // Allowed ext
-  const filetypes = /jpeg|jpg|png|gif/;
-  // Check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // Check mime
-  const mimetype = filetypes.test(file.mimetype);
-
-  if(mimetype && extname){
-    return cb(null,true);
-  } else {
-    cb('Error: Images Only!');
-  }
-}
-
-  // Init Upload
-  const upload = multer({
-    storage: Storage,
-    limits:{fileSize: 1000000},
-    fileFilter: function(req, file, cb){
-      checkFileType(file, cb);
-    }
-  }).single('Image');
-
-
-
-  app.post(['/upload', '/products/new'], (req, res) => { 
-    upload(req, res, (err)=> {
-      if(err) {
-        console.log(err);
-  }else {
-      const newImage = new Image({
-        name: req.body.name,
-        image:{
-          data:req.file.filename,
-          contentType: 'image/jpg'
-        },
-        filepath: req.file.path
-      })
-      console.log(newImage);
-      newImage.save()
-      .then(() => res.send('Successfully uploaded')).catch(err=>console.log(err))
-  }})
-  })
-
-  
+app.use('/', cartRoutes);
 
 // favicon error 
 app.get('/favicon.ico', function(req,res){
