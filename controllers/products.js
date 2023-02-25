@@ -65,6 +65,7 @@ function create(req, res) {
       shortdes: req.body.shortdes,
       longdes: req.body.longdes,
       seller: req.user,
+      price: req.body.price,
       image: null
     });
 

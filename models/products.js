@@ -11,6 +11,7 @@ const productSchema = new mongoose.Schema({
     listedDate: { type: Date, default: Date.now },
     shortdes: { type: String },
     longdes: { type: String },
+    price: { type: String },
     seller:
     {
         type: mongoose.Schema.Types.ObjectId,

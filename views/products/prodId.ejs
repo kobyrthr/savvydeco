@@ -32,9 +32,13 @@
         <h5><%= product.title %></h3>
           <p><%= product.shortdes %></p>
           <p><%= product.longdes %></p>
-
+    
           <a href="mailto:<%=seller.email%>"><button>Contact</button></a>
           <% if (user) { %>
+          <form action="/cart/" method="POST">
+            <input type="hidden" name="productId" value="<%= product._id %>">
+            <button type="submit">Add to Cart</button>
+          </form>
 
           <a href="/products/<%=product._id%>/edit"><button>Edit Product</button></a>
           <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
@@ -44,6 +48,13 @@
 
           </form>
           <% } else { %>
+          <form action="/cart/" method="POST">
+            <input type="hidden" name="productId" value="<%= product._id %>">
+            <input type="number" name="quantity" value="1">
+            <button type="submit">Add to Cart</button>
+          </form>
+
+          <a href="/add-to-cart/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
           <a href="/auth/google"><button>Login to post</button></a>
           <% } %>
 

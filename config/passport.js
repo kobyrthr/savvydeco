@@ -13,7 +13,7 @@ passport.use(
         },
         function(accessToken, refreshToken, profile, cb) {
             //a user has logged in with oauth
-            console.log(profile)
+            //console.log(profile)
             User.findOne({ googleId: profile.id }, (err, user) => {
                 if (err) return cb(err);
                 if (user) {
