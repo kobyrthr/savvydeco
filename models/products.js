@@ -4,12 +4,14 @@ const Categories = require("../models/categories");
 const User = require('../models/user');
 const Image = require('../models/images');
 
+
 const productSchema = new mongoose.Schema({
     id: { type: String },
     title: { type: String },
     listedDate: { type: Date, default: Date.now },
     shortdes: { type: String },
     longdes: { type: String },
+    price: { type: String },
     seller:
     {
         type: mongoose.Schema.Types.ObjectId,
@@ -20,7 +22,7 @@ const productSchema = new mongoose.Schema({
     image:
     {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'image',
+        ref: 'Image',
     }
 },
     {

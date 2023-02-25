@@ -10,6 +10,10 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
     ref: 'products'
 }],
+shoppingCart: [{
+    type: mongoose.Schema.Types.ObjectId,
+ref: 'ShoppingCart'
+}],
     // timestamps:true
 });
 

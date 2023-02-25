@@ -4,56 +4,59 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Savvy</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/skeleton.css">
-        <link rel="stylesheet" href="/css/style.css">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Savvy</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/style.css">
 
 
-        <script src="" async defer></script>
-    </head>
-    <body>
+  <script src="" async defer></script>
+</head>
 
-        
-        <%- include('../partials/nav.ejs') %>
-
-                    <div class="row userDetails">
-                        <div class="one column">
-                            <h5><%= user.name %>'s<br> Seller Page</h3>        
-                            <a href="/new"><button>List a new product</button></a>
-                        </div>
-                    </div>
-
-                    <div class="row products">
-             
-
-                        <%products.forEach(product => {%>
-        
-                            <div class="columns four product-card">
-                                <div class="titleSection">
-                                </div>
-                                <img src="/images/Product image.png" alt="" class ="card-img">
-                                <h5><%= product.title %></h5>
-                                <a href="/products/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
-                
-                            </div>
-                
-                            <% }) %>
-        
-                    </div>
-                   
-                </div>
-      
-
-             
-            </div>
-        </div>
+<body>
 
 
-    </body>
+  <%- include('../partials/nav.ejs') %>
+
+  <div class="row userDetails">
+    <div class="one column">
+      <h5><%= user.name %>'s<br> Seller Page</h3>
+        <a href="/new"><button>List a new product</button></a>
+    </div>
+  </div>
+
+  <div class="row products">
+
+
+    <%products.forEach(product => {%>
+
+    <div class="columns four product-card">
+      <div class="titleSection">
+      </div>
+      <img src="/<%=product.image.name %>" alt="" class="card-img">
+      <h5><%= product.title %></h5>
+      <a href="/products/<%= product._id%>"> <button class="secondaryBtn">See Details </button> </a>
+
+    </div>
+
+    <% }) %>
+
+  </div>
+
+  </div>
+
+
+
+  </div>
+  </div>
+
+
+</body>
+
 </html>
