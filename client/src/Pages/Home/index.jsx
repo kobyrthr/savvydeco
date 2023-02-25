@@ -1,12 +1,10 @@
-import { chakra,Container,Box, Flex, Text, Heading,Button, Image, Grid, GridItem, Card, CardHeader, CardBody, CardFooter, Stack, Divider,ButtonGroup } from '@chakra-ui/react'
+import { Box, Flex, Text, Heading,Button, Image, Grid, GridItem } from '@chakra-ui/react'
 import {React,useEffect,useState} from 'react'
 import Navbar from '../../components/Navbar'
 import ProductCard from '../../components/ProductCard'
 const Home = () => {
 
   const [products,setProducts] = useState([])
-    // {name:'Aricle Couch', seller:'Karina Garces', }
-    // { name, image, price, rating, numReviews }
 
   useEffect(()=>{
     const getData = async ()=>{
@@ -22,6 +20,7 @@ const Home = () => {
     {/* NAVBAR */}
     <Navbar></Navbar>
 
+    {/* HERO SECTION */}
     <Flex>
       <Box w={{ base: "100%", md: "50%" }}>
         <Heading as="h1" size="xl" mb="4">
@@ -47,9 +46,7 @@ const Home = () => {
     </Flex>
 
     {/* PRODUCT GRID */}
-
     <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
-
       gap={6}
       px={{ base: "4", md: "6", lg: "8" }}>
       {products.map((product,index)=>{
@@ -57,11 +54,7 @@ const Home = () => {
                 <ProductCard product={product} key={index}></ProductCard>
               </GridItem>
       })}
-
     </Grid>
-
-
-
     </>
   )
 }
