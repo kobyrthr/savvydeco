@@ -17,7 +17,7 @@ import {
   
 } from "@chakra-ui/react";
 
-import { CloseIcon,HamburgerIcon } from '@chakra-ui/icons'
+// import { CloseIcon,HamburgerIcon } from '@chakra-ui/icons'
 
 
 const NavBar = () => {
@@ -29,8 +29,8 @@ const NavBar = () => {
   };
 
   return (
-    <Box bg="gray.100" px="4">
-      <Flex alignItems="center" py="3">
+    <Box px="6" bg={'Savvybrown.0'}  >
+      <Flex alignItems="center" py="3" >
         <Box>
           <Link to="/">
             <Image src="images/favicon.png" alt="Logo" boxSize="40px" objectFit="contain" />
@@ -41,7 +41,7 @@ const NavBar = () => {
           <>
             <IconButton
               aria-label="Toggle navigation"
-              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              // icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               onClick={toggleMobile}
             />
             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
@@ -52,7 +52,7 @@ const NavBar = () => {
                 <DrawerBody>
                   <Box>
                     <Link to="/">Home</Link>
-                    <Button colorScheme="blue" variant="solid">
+                    <Button bg="black" color='white'>
                       Log In with Google
                     </Button>
                   </Box>
@@ -63,7 +63,7 @@ const NavBar = () => {
         ) : (
           <Box>
             <Link to="/">Home</Link>
-            <Button ml="4" colorScheme="blue" variant="solid">
+            <Button ml="4" bg="black" color='white'>
               Log In with Google
             </Button>
           </Box>

@@ -18,11 +18,11 @@ const Home = () => {
   return (
     <>
     {/* NAVBAR */}
-    <Navbar></Navbar>
+    <Navbar ></Navbar>
 
     {/* HERO SECTION */}
-    <Flex>
-      <Box w={{ base: "100%", md: "50%" }}>
+    <Flex bg={'Savvybrown.0'}>
+      <Box  w={{ base: "100%", md: "50%" }}  p={16}>
         <Heading as="h1" size="xl" mb="4">
           Welcome to our website
         </Heading>
@@ -30,17 +30,17 @@ const Home = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Text>
-        <Button colorScheme="blue" size="lg">
+        <Button bg="black" color='white' size="lg">
           Learn more
         </Button>
       </Box>
-      <Box w={{ base: "100%", md: "50%" }}>
+      <Box w={{ base: "100%", md: "50%" }} p={16}>
         <Image
-          src='images/Hero image.png' boxSize='sm'
+          src='images/Hero image.png' 
+          boxSize='m'
           alt="hero image"
           objectFit="cover"
-          h="100%"
-          w="100%"
+        
         />
       </Box>
     </Flex>
@@ -48,7 +48,8 @@ const Home = () => {
     {/* PRODUCT GRID */}
     <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
       gap={6}
-      px={{ base: "4", md: "6", lg: "8" }}>
+      px={{ base: "4", md: "6", lg: "8" }}
+      bg={'Savvybrown.0'}>
       {products.map((product,index)=>{
         return <GridItem>
                 <ProductCard product={product} key={index}></ProductCard>
