@@ -36,10 +36,10 @@ require("./config/passport");
 
 
 /* ====== Routes  ====== */
-const indexRoutes = require('./routes/index');
-const userRoutes = require('./routes/users');
-const productRoutes = require('./routes/products');
-const cartRoutes = require('./routes/carts');
+const indexRoutes = require('./server/routes/index');
+const userRoutes = require('./server/routes/users');
+const productRoutes = require('./server/routes/products');
+const cartRoutes = require('./server/routes/carts');
 
 	
 /* ====== Middleware  ====== */ 
