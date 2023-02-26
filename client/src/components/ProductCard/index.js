@@ -6,13 +6,13 @@ const ProductCard = ({ product }) => {
   // const { name, image, price, rating, numReviews } = product;
 
   return (
-    <Card maxW='sm' boxShadow='none' bg={'Savvybrown.0'}>
+    <Card maxW='sm' boxShadow='none' bg={'Savvybrown.0'} color={'black'}>
           <CardBody border={'none'} >
             <Image
               src={product.image} boxSize='sm'objectFit={'contain'} bg={'Savvybrown.0'}
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md' maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">{product.title}</Heading>
+              <Heading size='md' maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis" >{product.title}</Heading>
               <Text maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
                 {product.description}
               </Text>
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
           
           <CardFooter>
             <ButtonGroup spacing='2'>
-              <Button variant='solid' bg='black' color='white'>
+              <Button variant='ghost' border={'1px solid black'} color='black'>
                 Add to cart
               </Button>
             </ButtonGroup>

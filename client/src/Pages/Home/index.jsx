@@ -18,18 +18,20 @@ const Home = () => {
   return (
     <>
     {/* NAVBAR */}
+    <Box color={'black'}>
+
     <Navbar ></Navbar>
 
     {/* HERO SECTION */}
     <Flex bg={'Savvybrown.0'}>
-      <Box  w={{ base: "100%", md: "50%" }}  p={16}>
-        <Heading as="h1" size="xl" mb="4">
-          Welcome to our website
+      <Box  w={{ base: "100%", md: "50%" }}  p={200}>
+        <Heading as="h1" size="2xl" mb="4">
+        High-end decor at accessible prices
         </Heading>
         <Text fontSize="xl" mb="6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </Text>
+        The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
+
+</Text>
         <Button bg="black" color='white' size="lg">
           Learn more
         </Button>
@@ -56,6 +58,7 @@ const Home = () => {
               </GridItem>
       })}
     </Grid>
+    </Box>
     </>
   )
 }
