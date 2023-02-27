@@ -7,7 +7,7 @@ import axios from 'axios'
 const Home = () => {
 
   const [products,setProducts] = useState([])
-  const fetchProducts = 
+  // const fetchProducts = 
   
   // async (err)=>{
   //   if (err){
@@ -23,16 +23,21 @@ const Home = () => {
   // }
   // useEffect(()=>fetchProducts(),[])
 
-   useEffect(() => {
-    async function fetchMyAPI() {
-      let response = await fetch('/api')
-      response = await response.json()
-      console.log("YO",response)
+   useEffect(() => { async function fetchMyAPI (){
+      {
+        try {
+          const allProducts = await axios.get('/api');
+          console.log(allProducts)
+          setProducts(allProducts.data.products)
+        } catch (error) {
+          console.log(error)
+        }
+      }
     }
     fetchMyAPI()
-  })
+  },[])
 
-  useEffect(()=>{console.log(products)},[products])
+  useEffect(()=>{console.log("here are products: ",products)},[products])
   return (
     <>
     {/* NAVBAR */}
