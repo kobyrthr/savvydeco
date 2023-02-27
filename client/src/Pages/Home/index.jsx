@@ -2,19 +2,22 @@ import { Box, Flex, Text, Heading,Button, Image, Grid, GridItem } from '@chakra-
 import {React,useEffect,useState} from 'react'
 import Navbar from '../../components/Navbar'
 import ProductCard from '../../components/ProductCard'
+import { getAllProducts } from '../../api/products.service'
+import axios from 'axios'
 const Home = () => {
 
   const [products,setProducts] = useState([])
+  const fetchProducts = 
+  
+  async ()=>{
+    await getAllProducts()
+    .then((res)=>{
+      console.log(res.data.data.reverse())
+    })
+  }
+  useEffect(()=>fetchProducts(),[])
 
-  useEffect(()=>{
-    const getData = async ()=>{
-      const data = await fetch('https://fakestoreapi.com/products/')
-      setProducts(await data.json())
-    }
-    getData()
-  },[])
-
-  useEffect(()=>{console.log(products)},[products])
+  // useEffect(()=>{console.log(products)},[products])
   return (
     <>
     {/* NAVBAR */}
@@ -48,7 +51,7 @@ const Home = () => {
     </Flex>
 
     {/* PRODUCT GRID */}
-    <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
+    {/* <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
       gap={6}
       px={{ base: "4", md: "6", lg: "8" }}
       bg={'Savvybrown.0'}>
@@ -57,7 +60,7 @@ const Home = () => {
                 <ProductCard product={product} key={index}></ProductCard>
               </GridItem>
       })}
-    </Grid>
+    </Grid> */}
     </Box>
     </>
   )

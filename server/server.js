@@ -70,7 +70,7 @@ app.use(passport.session());
 
 
 app.use('/', productRoutes);
-app.use('/', indexRoutes);
+app.use('/api', indexRoutes);
 app.use('/', userRoutes);
 app.use('/', cartRoutes);
 
