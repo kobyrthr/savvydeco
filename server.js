@@ -49,6 +49,7 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(require('cors')())
 
 
 // method override Middleware

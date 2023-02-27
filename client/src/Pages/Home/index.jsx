@@ -9,15 +9,30 @@ const Home = () => {
   const [products,setProducts] = useState([])
   const fetchProducts = 
   
-  async ()=>{
-    await getAllProducts()
-    .then((res)=>{
-      console.log(res.data.data.reverse())
-    })
-  }
-  useEffect(()=>fetchProducts(),[])
+  // async (err)=>{
+  //   if (err){
+  //     console.log("AAXIOS ERROR: ",err)
+  //   }
 
-  // useEffect(()=>{console.log(products)},[products])
+  //   else{
+  //     await axios.get("http://localhost:4000/api")
+  //     .then((res)=>{
+  //       console.log(res.data)
+  //     })
+  //   }
+  // }
+  // useEffect(()=>fetchProducts(),[])
+
+   useEffect(() => {
+    async function fetchMyAPI() {
+      let response = await fetch('/api')
+      response = await response.json()
+      console.log("YO",response)
+    }
+    fetchMyAPI()
+  })
+
+  useEffect(()=>{console.log(products)},[products])
   return (
     <>
     {/* NAVBAR */}
@@ -51,7 +66,7 @@ const Home = () => {
     </Flex>
 
     {/* PRODUCT GRID */}
-    {/* <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
+    <Grid templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
       gap={6}
       px={{ base: "4", md: "6", lg: "8" }}
       bg={'Savvybrown.0'}>
@@ -60,7 +75,7 @@ const Home = () => {
                 <ProductCard product={product} key={index}></ProductCard>
               </GridItem>
       })}
-    </Grid> */}
+    </Grid>
     </Box>
     </>
   )
