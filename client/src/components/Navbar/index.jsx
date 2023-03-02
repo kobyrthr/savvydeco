@@ -52,7 +52,7 @@ const NavBar = () => {
                 <DrawerBody>
                   <Box>
                     <Link to="/">Home</Link>
-                    <Button bg="black" color='white' onclick='/auth/google'>
+                    <Button bg="black" color='white' onclick='/auth/google' onClick={()=>{ window.open("http://localhost:4000/api/auth/google", "_self")}}>
                       Log In with Google
                     </Button>
                   </Box>
@@ -63,7 +63,7 @@ const NavBar = () => {
         ) : (
           <Box>
             <Link to="/">Home</Link>
-            <Button ml="4" bg="black" color='white' link={'/auth/google'}>
+            <Button ml="4" bg="black" color='white' onClick={()=>{ window.open("http://localhost:4000/api/auth/google", "_self")}}>
               Log In with Google
             </Button>
           </Box>

@@ -42,6 +42,7 @@ const Home = () => {
   },[])
 
   useEffect(()=>{console.log("here are products: ",products)},[products])
+
   return (
     <>
     {/* NAVBAR */}
