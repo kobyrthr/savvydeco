@@ -2,46 +2,19 @@ import { Box, Flex, Text, Heading,Button, Image, Grid, GridItem } from '@chakra-
 import {React,useEffect,useState} from 'react'
 import Navbar from '../../components/Navbar'
 import ProductCard from '../../components/ProductCard'
-import { getAllProducts } from '../../api/products.service';
-import heroImage from '../../images/Heroimage.png';
-import axios from 'axios'
-
-
-
-
 const Home = () => {
 
   const [products,setProducts] = useState([])
-  // const fetchProducts = 
-  
-  // async (err)=>{
-  //   if (err){
-  //     console.log("AAXIOS ERROR: ",err)
-  //   }
 
-  //   else{
-  //     await axios.get("http://localhost:4000/api")
-  //     .then((res)=>{
-  //       console.log(res.data)
-  //     })
-  //   }
-  // }
-  // useEffect(()=>fetchProducts(),[])
-
-   useEffect(() => { async function fetchMyAPI (){
-      
-        try {
-          const allProducts = await axios.get('/api');
-          console.log(allProducts)
-          setProducts(allProducts.data.products)
-        } catch (error) {
-          console.log(error)
-        }  
+  useEffect(()=>{
+    const getData = async ()=>{
+      const data = await fetch('https://fakestoreapi.com/products/')
+      setProducts(await data.json())
     }
-    fetchMyAPI()
+    getData()
   },[])
 
-  useEffect(()=>{console.log("here are products: ",products)},[products])
+  useEffect(()=>{console.log(products)},[products])
   return (
     <>
     {/* NAVBAR */}
@@ -65,7 +38,7 @@ const Home = () => {
       </Box>
       <Box w={{ base: "100%", md: "50%" }} p={16}>
         <Image
-          src={heroImage}
+          src='images/Hero image.png' 
           boxSize='m'
           alt="hero image"
           objectFit="cover"
