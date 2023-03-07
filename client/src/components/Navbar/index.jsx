@@ -1,76 +1,63 @@
 import { useState } from "react";
 import {
   Box,
-  Flex,
-  Spacer,
-  Image,
   Button,
+  ButtonGroup,
+  Container,
+  Flex,
+  HStack,
   IconButton,
-  Drawer,
-  Link,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
-  useDisclosure,
-  
-} from "@chakra-ui/react";
+  useBreakpointValue,
+} from '@chakra-ui/react'
+import { FiMenu } from 'react-icons/fi'
+import { Logo } from './Logo'
 
-// import { CloseIcon,HamburgerIcon } from '@chakra-ui/icons'
-
-
-const NavBar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isMobile, setIsMobile] = useState(false);
-
-  const toggleMobile = () => {
-    setIsMobile(!isMobile);
-  };
-
+export const NavBar = () => {
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  })
   return (
-    <Box px="6" bg={'Savvybrown.0'}  >
-      <Flex alignItems="center" py="3" >
-        <Box>
-          <Link to="/">
-            <Image src="images/favicon.png" alt="Logo" boxSize="40px" objectFit="contain" />
-          </Link>
-        </Box>
-        <Spacer />
-        {isMobile ? (
-          <>
-            <IconButton
-              aria-label="Toggle navigation"
-              // icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-              onClick={toggleMobile}
-            />
-            <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
-              <DrawerOverlay />
-              <DrawerContent>
-                <DrawerCloseButton />
-                <DrawerHeader>Navigation</DrawerHeader>
-                <DrawerBody>
-                  <Box>
-                    <Link to="/">Home</Link>
-                    <Button bg="black" color='white' onclick='/auth/google' onClick={()=>{ window.open("http://localhost:4000/api/auth/google", "_self")}}>
-                      Log In with Google
-                    </Button>
-                  </Box>
-                </DrawerBody>
-              </DrawerContent>
-            </Drawer>
-          </>
-        ) : (
-          <Box>
-            <Link to="/">Home</Link>
-            <Button ml="4" bg="black" color='white' onClick={()=>{ window.open("http://localhost:4000/api/auth/google", "_self")}}>
-              Log In with Google
-            </Button>
-          </Box>
-        )}
-      </Flex>
+    <Box
+      as="section"
+      pb={{
+        base: '12',
+        md: '24',
+      }}
+    >
+      <Box as="nav" bg="bg-surface" boxShadow="sm">
+        <Container
+          py={{
+            base: '4',
+            lg: '5',
+          }}
+        >
+          <HStack spacing="10" justify="space-between">
+            <Logo />
+            {isDesktop ? (
+              <Flex justify="space-between" flex="1">
+                <ButtonGroup variant="link" spacing="8">
+                  {['Product', 'Pricing', 'Resources', 'Support'].map((item) => (
+                    <Button key={item}>{item}</Button>
+                  ))}
+                </ButtonGroup>
+                <HStack spacing="3">
+                  <Button variant="ghost">Sign in</Button>
+                  <Button variant="primary">Sign up</Button>
+                </HStack>
+              </Flex>
+            ) : (
+              <IconButton
+                variant="ghost"
+                icon={<FiMenu fontSize="1.25rem" />}
+                aria-label="Open Menu"
+              />
+            )}
+          </HStack>
+        </Container>
+      </Box>
     </Box>
-  );
-};
+  )
+}
 
 export default NavBar;
