@@ -8,6 +8,7 @@ import {
   HStack,
   IconButton,
   useBreakpointValue,
+  Link
 } from '@chakra-ui/react'
 import { FiMenu } from 'react-icons/fi'
 import { Logo } from '../../components/Logo'
@@ -30,12 +31,20 @@ export const NavBar = () => {
           maxW={'100vw'}
         >
           <HStack spacing="10" justify="space-between">
+            <Link href='/'>
             <Logo />
+
+                    </Link>
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
-                  {['Product', 'Pricing', 'Resources', 'Support'].map((item) => (
-                    <Button key={item}>{item}</Button>
+                  {['NewProductPage', 'ProductPage'].map((item) => (
+                    <Button key={item}>
+                    <Link href='/product_id'>
+
+                    {item}
+                    </Link>
+                    </Button>
                   ))}
                 </ButtonGroup>
                 <HStack spacing="3">
