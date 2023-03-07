@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-route
 import Navbar from './components/Navbar';
 import Home from './Pages/Home'
 import Profile from './Pages/Profile'
+import ProductPage from './Pages/ProductPage'
+
 
 
 function App() {
@@ -10,7 +12,7 @@ function App() {
   return (<>
   <BrowserRouter>
       <Routes>
-        <Route exact path='/' element ={<Home/>}/>
+        <Route exact path='/' element ={<ProductPage/>}/>
         <Route exact path='/profile' element ={<Profile/>}/>
       </Routes>
   </BrowserRouter>
