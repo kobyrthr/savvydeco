@@ -10,7 +10,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { FiMenu } from 'react-icons/fi'
-import { Logo } from './Logo'
+import { Logo } from '../../components/Logo'
 
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({
@@ -20,10 +20,6 @@ export const NavBar = () => {
   return (
     <Box
       as="section"
-      pb={{
-        base: '12',
-        md: '24',
-      }}
     >
       <Box as="nav" bg="bg-surface" boxShadow="sm">
         <Container
@@ -31,6 +27,7 @@ export const NavBar = () => {
             base: '4',
             lg: '5',
           }}
+          maxW={'100vw'}
         >
           <HStack spacing="10" justify="space-between">
             <Logo />
