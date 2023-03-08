@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, HStack, Img, Stack, Text } from '@chakra-ui/react'
 import { HiChevronRight } from 'react-icons/hi'
+import heroImage from '../../images/couch_img_1.png';
 
 export const Hero = () => {
   return (
@@ -19,8 +20,8 @@ export const Hero = () => {
         >
           <Box maxW="xl">
             <Heading as="h1" size="3xl" fontWeight="extrabold">
-              Build relationship with the your customers
-            </Heading>
+            Your dream furniture,
+ at your dream prices.            </Heading>
             <Text
               fontSize={{
                 md: '2xl',
@@ -49,8 +50,7 @@ export const Hero = () => {
                 fontSize="md"
                 fontWeight="bold"
               >
-                Get Started for Free
-              </Button>
+Shop Now              </Button>
               <HStack
                 as="a"
                 transition="background 0.2s"
@@ -68,7 +68,7 @@ export const Hero = () => {
                   bg: 'whiteAlpha.300',
                 }}
               >
-                <span>Talk to Sales</span>
+                <span>List an item to sell</span>
                 <HiChevronRight />
               </HStack>
             </Stack>
@@ -87,7 +87,7 @@ export const Hero = () => {
       >
         <Box position="relative" w="full" h="full">
           <Img
-            src="../../images/couch_img_1.png"
+            src={heroImage}
             alt="Main Image"
             w="full"
             h="full"
@@ -95,7 +95,7 @@ export const Hero = () => {
             objectPosition="top bottom"
             position="absolute"
           />
-          <Box position="absolute" w="full" h="full" bg="blackAlpha.600" />
+          {/* <Box position="absolute" w="full" h="full" bg="blackAlpha.600" /> */}
         </Box>
       </Flex>
     </Box>

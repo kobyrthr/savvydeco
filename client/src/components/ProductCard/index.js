@@ -1,15 +1,16 @@
 import React from 'react'
 
 import { Card, CardFooter,Button,Divider,ButtonGroup,Heading,CardBody, Image, Text, Stack } from "@chakra-ui/react";
+import { products } from './_data'
 
 export const ProductCard = ({ product }) => {
   // const { name, image, price, rating, numReviews } = product;
 
   return (
-    <Card maxW='sm' boxShadow='none' bg={'Savvybrown.0'} color={'black'}>
+    <Card maxW='sm' boxShadow='none' >
           <CardBody border={'none'} >
             <Image
-              src={product.image} boxSize='sm'objectFit={'contain'} bg={'Savvybrown.0'}
+              src={product.imageUrl} boxSize='sm'objectFit={'contain'} 
             />
             <Stack mt='6' spacing='3'>
               <Heading size='md' maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis" >{product.title}</Heading>
