@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Card, CardFooter,Button,Divider,ButtonGroup,Heading,CardBody, Image, Text, Stack } from "@chakra-ui/react";
 
-const ProductCard = ({ product }) => {
+export const ProductCard = ({ product }) => {
   // const { name, image, price, rating, numReviews } = product;
 
   return (

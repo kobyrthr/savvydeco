@@ -17,8 +17,11 @@ import {
     Textarea,
   } from '@chakra-ui/react'
   import { Dropzone } from '../../components/Dropzone'
+import NavBar from '../../components/Navbar'
   
   export const NewProductPage = () => (
+    <>
+    <NavBar></NavBar>
     <Container
       py={{
         base: '4',
@@ -36,7 +39,7 @@ import {
         >
           <Box>
             <Text fontSize="lg" fontWeight="medium">
-              Your Profile
+              New Product
             </Text>
             <Text color="muted" fontSize="sm">
               Tell others who you are
@@ -180,5 +183,6 @@ import {
         </Stack>
       </Stack>
     </Container>
+    </>
   )
   export default NewProductPage
