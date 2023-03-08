@@ -33,23 +33,19 @@ export const NavBar = () => {
           <HStack spacing="10" justify="space-between">
             <Link href='/'>
             <Logo />
-
-                    </Link>
+            </Link>
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
-                  {['NewProductPage', 'ProductPage'].map((item) => (
-                    <Button key={item}>
-                    <Link href='/product_id'>
-
-                    {item}
-                    </Link>
-                    </Button>
-                  ))}
+                  <Button variant='link' spacing='8'>
+                    <Link href='/new_product'>New Product Page</Link>
+                  </Button>
+                  <Button variant='link' spacing='8'>
+                    <Link href='/product_id'> Product ID Page</Link>
+                  </Button>
                 </ButtonGroup>
                 <HStack spacing="3">
-                  <Button variant="ghost">Sign in</Button>
-                  <Button variant="primary">Sign up</Button>
+                  <Button variant="primary">Cart</Button>
                 </HStack>
               </Flex>
             ) : (
