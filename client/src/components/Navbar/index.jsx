@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { FiMenu } from 'react-icons/fi'
 import { Logo } from '../../components/Logo'
+import { Cart } from "../../components/Cart";
 
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({
@@ -30,6 +31,7 @@ export const NavBar = () => {
           }}
           maxW={'100vw'}
         >
+      <Cart></Cart>
           <HStack spacing="10" justify="space-between">
             <Link href='/'>
             <Logo />
