@@ -10,17 +10,19 @@ import {
     Icon,
     Stack,
     Text,
-    useColorModeValue,
+    useColorModeValue
   } from '@chakra-ui/react'
   import { FiPackage } from 'react-icons/fi'
   import { CartItem } from '../../components/CartItem'
-  import { cartData } from './_data'
+  import { cartData } from '../Navbar/_data'
+  import React from 'react'
   
-  export const Cart = () => (
-    <Box >
+  export function Cart(props) {
+
+
+    return(
       <Drawer
-        isOpen
-        onClose={() => void 0}
+  
         size="md"
         /*`trapFocus` and `blockScrollOnMount` are only switched off so that the preview works properly. */ 
         blockScrollOnMount={
@@ -38,6 +40,7 @@ import {
             }}
             top="4"
             bg="inherit"
+            onClick={props.onClose}
           />
           <Stack
             padding={{
@@ -85,7 +88,8 @@ import {
           </Stack>
         </DrawerContent>
       </Drawer>
-    </Box>
-  )                         
+    )                         
+  } 
+
 
 export default Cart
