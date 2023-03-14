@@ -1,9 +1,10 @@
 import { Box, SimpleGrid } from '@chakra-ui/react'
 import { ProductCard } from '../../components/ProductCard'
-import { products } from '../ProductCard/_data'
+// import { products } from '../ProductCard/_data'
 
-export const ProductGrid = () => (
+export const ProductGrid = ({products}) => (
   <Box
+  
     maxW="7xl"
     mx="auto"
     px={{
@@ -17,6 +18,7 @@ export const ProductGrid = () => (
       lg: '12',
     }}
   >
+  {console.log('my products in my grid:',products)}
     <SimpleGrid
       columns={{
         base: 1,
@@ -30,7 +32,7 @@ export const ProductGrid = () => (
       }}
     >
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} src={product.imageUrl} />
+        <ProductCard product={product} />
       ))}
     </SimpleGrid>
   </Box>

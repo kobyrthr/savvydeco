@@ -10,12 +10,12 @@ export const ProductCard = ({ product }) => {
     <Card maxW='sm' boxShadow='none' >
           <CardBody border={'none'} >
             <Image
-              src={product.imageUrl} boxSize='sm'objectFit={'contain'} 
+              src={product.images[0].productImages[0].images[0].url} boxSize='sm'objectFit={'contain'} 
             />
             <Stack mt='6' spacing='3'>
               <Heading size='md' maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis" >{product.title}</Heading>
               <Text maxW="300px" whiteSpace="nowrap" overflow="hidden" textOverflow="ellipsis">
-                {product.description}
+                {product.name}
               </Text>
               <Text color='black' fontSize='2xl'>
                 ${product.price}
