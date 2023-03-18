@@ -31,7 +31,7 @@ export const ProductGrid = ({products}) => (
         lg: '10',
       }}
     >
-      {products.map((product) => (
+      {products.edges.map(({ node: product }) => (
         <ProductCard product={product} />
       ))}
     </SimpleGrid>

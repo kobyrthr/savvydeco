@@ -6,8 +6,11 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clf8qr9qd0amx01ur7qrmdk26/master",
-  cache: new InMemoryCache()
+  uri: "https://savvy-marketplace.myshopify.com/api/2023-01/graphql.json",
+  cache: new InMemoryCache(),
+  headers:{
+    'X-Shopify-Storefront-Access-Token': 'c6c55d3f59275e9827ccd189b8a5d0f5',
+  }
 });
 
 const container = document.getElementById('root');
@@ -22,13 +25,13 @@ const theme = extendTheme({colors})
 
 root.render(
   <StrictMode>
-    {/* <ApolloProvider client={client}> */}
+    <ApolloProvider client={client}>
     <ColorModeScript />
     <ChakraProvider theme={theme}>
 
       <App /> 
     </ChakraProvider>
 
-
+    </ApolloProvider>
   </StrictMode>
 );
