@@ -1,20 +1,14 @@
-import {Profiler, React,useEffect} from 'react';
+import {React} from 'react';
 import {BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom'
-import Navbar from './components/Navbar';
 import Home from './Pages/Home'
 import Profile from './Pages/Profile'
 import ProductPage from './Pages/ProductPage'
 import NewProductPage from './Pages/NewProductPage';
 
-// import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-// import { QueryClient, QueryClientProvider } from "react-query";
-
-// const queryClient = new QueryClient() // Instance of QueryClient
 
 function App() {
 
   return (<>
-      {/* <QueryClientProvider client={queryClient}> */}
 
   <BrowserRouter>
       <Routes>
@@ -25,7 +19,6 @@ function App() {
 
       </Routes>
   </BrowserRouter>
-  {/* </QueryClientProvider> */}
   </>
   );
 }

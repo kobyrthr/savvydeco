@@ -16,8 +16,8 @@ const client = new ApolloClient({
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 const colors = {
-  Savvybrown:{
-    0:'#FFF8EC'
+  Savvygreen:{
+    0:'#53775E'
   }
 }
 

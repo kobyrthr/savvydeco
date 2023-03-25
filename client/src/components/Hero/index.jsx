@@ -4,8 +4,8 @@ import heroImage from '../../images/couch_img_1.png';
 
 export const Hero = () => {
   return (
-    <Box bg="gray.800" as="section" minH="140px" position="relative">
-      <Box py="32" position="relative" zIndex={1}>
+    <Box as="section" minH="140px" position="relative">
+      <Flex py="32" position="relative" zIndex={1} >
         <Box
           maxW={{
             base: 'xl',
@@ -16,21 +16,20 @@ export const Hero = () => {
             base: '6',
             md: '8',
           }}
-          color="white"
+          color="#53775E"
+          textAlign={'center'}
         >
           <Box maxW="xl">
-            <Heading as="h1" size="3xl" fontWeight="extrabold">
-            Your dream furniture,
- at your dream prices.            </Heading>
+            <Heading as="h1" size="2xl" fontWeight="extrabold">
+            Your dream home decor
+at even dreamier prices            </Heading>
             <Text
               fontSize={{
                 md: '2xl',
               }}
               mt="4"
-              maxW="lg"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
+             The pain itself is love, the main storage system. It is not until the hunger of any one can pull the boxes.
             </Text>
             <Stack
               direction={{
@@ -39,42 +38,24 @@ export const Hero = () => {
               }}
               mt="10"
               spacing="4"
+              justifyContent={'center'}
             >
               <Button
                 as="a"
                 href="#"
-                colorScheme="blue"
+                backgroundColor={"#53775E"}
                 px="8"
                 rounded="full"
                 size="lg"
                 fontSize="md"
                 fontWeight="bold"
+                color={'white'}
               >
 Shop Now              </Button>
-              <HStack
-                as="a"
-                transition="background 0.2s"
-                justify={{
-                  base: 'center',
-                  md: 'flex-start',
-                }}
-                href="#"
-                color="white"
-                rounded="full"
-                fontWeight="bold"
-                px="6"
-                py="3"
-                _hover={{
-                  bg: 'whiteAlpha.300',
-                }}
-              >
-                <span>List an item to sell</span>
-                <HiChevronRight />
-              </HStack>
             </Stack>
           </Box>
         </Box>
-      </Box>
+      </Flex>
       <Flex
         id="image-wrapper"
         position="absolute"
@@ -84,6 +65,7 @@ Shop Now              </Button>
         h="full"
         overflow="hidden"
         align="center"
+        borderRadius={'60px 60px 0 0'}
       >
         <Box position="relative" w="full" h="full">
           <Img

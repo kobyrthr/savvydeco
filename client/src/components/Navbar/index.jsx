@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Box,
   Button,
@@ -58,7 +57,6 @@ export const NavBar = () => {
         finalFocusRef={btnRef}
   
   size="md"
-  /*`trapFocus` and `blockScrollOnMount` are only switched off so that the preview works properly. */ 
   blockScrollOnMount={
     false
   }
