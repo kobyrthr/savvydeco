@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading, HStack, Img, Stack, Text } from '@chakra-ui/react'
-import heroImage from '../../images/couch_img_1.png';
+import heroImage from '../../images/couch_img 2.png';
 
 export const Hero = () => {
   return (
@@ -61,7 +61,7 @@ Shop Now              </Button>
         insetX="0"
         insetY="0"
         w="full"
-        h="full"
+       h="full"
         overflow="hidden"
         align="center"
         borderRadius={'60px 60px 0 0'}
