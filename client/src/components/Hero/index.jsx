@@ -1,10 +1,9 @@
 import { Box, Button, Flex, Heading, HStack, Img, Stack, Text } from '@chakra-ui/react'
-import { HiChevronRight } from 'react-icons/hi'
 import heroImage from '../../images/couch_img_1.png';
 
 export const Hero = () => {
   return (
-    <Box as="section" minH="140px" position="relative">
+    <Box as="section" minH="140px" position="relative" backgroundColor={'white'}>
       <Flex py="32" position="relative" zIndex={1} >
         <Box
           maxW={{
@@ -45,7 +44,7 @@ at even dreamier prices            </Heading>
                 href="#"
                 backgroundColor={"#53775E"}
                 px="8"
-                rounded="full"
+                borderRadius={"4px"}
                 size="lg"
                 fontSize="md"
                 fontWeight="bold"
@@ -77,7 +76,6 @@ Shop Now              </Button>
             objectPosition="top bottom"
             position="absolute"
           />
-          {/* <Box position="absolute" w="full" h="full" bg="blackAlpha.600" /> */}
         </Box>
       </Flex>
     </Box>

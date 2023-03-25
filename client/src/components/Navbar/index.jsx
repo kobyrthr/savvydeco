@@ -17,16 +17,17 @@ import {
   Icon,
   Stack,
   Text,
-  useColorModeValue
+  useColorModeValue,
+  Img
 
 } from '@chakra-ui/react'
-import { FiMenu } from 'react-icons/fi'
-import { FiPackage } from 'react-icons/fi'
+import { FiMenu,FiPackage,FiShoppingCart } from 'react-icons/fi'
+// import { FiPackage } from 'react-icons/fi'
 import { Logo } from '../../components/Logo'
-// import { Cart } from "../../components/Cart";
 import React from "react";
 import { CartItem } from '../../components/CartItem'
-  import { cartData } from './_data'
+import { cartData } from './_data'
+import savvyLogo from '../../images/SavvyLogo.png';
 
 export const NavBar = () => {
   const isDesktop = useBreakpointValue({
@@ -124,7 +125,7 @@ export const NavBar = () => {
       
           <HStack spacing="10" justify="space-between">
             <Link href='/'>
-            <Logo />
+            <Img src={savvyLogo}></Img>
             </Link>
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
@@ -137,11 +138,14 @@ export const NavBar = () => {
                   </Button>
                 </ButtonGroup>
                 <HStack spacing="3">
-                  <Button 
-                  variant="primary"
+              <IconButton
+                variant="ghost"
+                icon={<FiShoppingCart fontSize="1.25rem" />}
+                aria-label="Open Menu"
                   ref={btnRef}
                   onClick={onOpen}
-                  >Cart</Button>
+                  color='#53775E'
+              />
                 </HStack>
               </Flex>
             ) : (
